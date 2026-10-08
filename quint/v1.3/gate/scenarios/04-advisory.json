@@ -1,0 +1,568 @@
+{
+  "name": "04-advisory",
+  "about": "The default auditor is observational. A genuinely required A2 failure blocks both policies despite over_strict/contradicts advice, before and after selection. Only verified repair permits landing.",
+  "steps": [
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "policy": "green",
+        "verdict": "none",
+        "landable": false
+      }
+    },
+    {
+      "do": [
+        "Baseline",
+        {
+          "name": "c1",
+          "status": "green"
+        }
+      ]
+    },
+    {
+      "do": [
+        "Now",
+        {
+          "name": "c1",
+          "status": "green",
+          "hasIds": true,
+          "subset": true,
+          "sameExit": true
+        }
+      ]
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A2",
+          "kind": "keep",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 1,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "valid"
+        }
+      ],
+      "expect": {
+        "items": {
+          "A2": {
+            "demoted": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "garbled"
+        }
+      ],
+      "expect": {
+        "items": {
+          "A2": {
+            "demoted": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green-or-advisory"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false
+      }
+    },
+    {
+      "do": [
+        "Offer",
+        {
+          "rung": "1",
+          "passed": 1,
+          "blocking": 1,
+          "diff": 3
+        }
+      ]
+    },
+    {
+      "do": [
+        "Offer",
+        {
+          "rung": "2",
+          "passed": 1,
+          "blocking": 2,
+          "diff": 1
+        }
+      ]
+    },
+    {
+      "do": [
+        "Pick"
+      ],
+      "expect": {
+        "winner": "1"
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "over_strict"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "contradicts"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "garbled"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "over_strict"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "unknown",
+          "verdict": "over_strict"
+        }
+      ],
+      "expect": {
+        "last": "unknown_item",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "invalid"
+        }
+      ],
+      "expect": {
+        "last": "bad_verdict",
+        "ledger": "fail",
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "1",
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 1,
+            "diff": 3
+          },
+          "2": {
+            "passed": 1,
+            "blocking": 2,
+            "diff": 1
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green-or-advisory"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false,
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "winner": "1"
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false,
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          },
+          "A2": {
+            "passed": false,
+            "demoted": false
+          }
+        },
+        "winner": "1"
+      }
+    },
+    {
+      "do": [
+        "Offer",
+        {
+          "rung": "3",
+          "passed": 2,
+          "blocking": 0,
+          "diff": 5
+        }
+      ]
+    },
+    {
+      "do": [
+        "Pick"
+      ],
+      "expect": {
+        "winner": "3"
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "contradicts"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false,
+        "winner": "3",
+        "offers": {
+          "3": {
+            "passed": 2,
+            "blocking": 0,
+            "diff": 5
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ],
+      "expect": {
+        "items": {
+          "A1": {
+            "passed": true,
+            "demoted": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A2",
+          "kind": "keep",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ],
+      "expect": {
+        "items": {
+          "A2": {
+            "passed": true,
+            "demoted": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "verdict": "green",
+        "landable": true
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "over_strict"
+        }
+      ],
+      "expect": {
+        "verdict": "green",
+        "landable": true,
+        "winner": "3",
+        "items": {
+          "A2": {
+            "passed": true,
+            "demoted": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green-or-advisory"
+        }
+      ],
+      "expect": {
+        "verdict": "green",
+        "landable": true
+      }
+    },
+    {
+      "do": [
+        "Demote",
+        {
+          "id": "A2",
+          "verdict": "over_strict"
+        }
+      ],
+      "expect": {
+        "verdict": "green",
+        "landable": true,
+        "winner": "3",
+        "items": {
+          "A2": {
+            "passed": true,
+            "demoted": false
+          }
+        }
+      }
+    }
+  ]
+}

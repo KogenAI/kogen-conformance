@@ -1,0 +1,75 @@
+{
+  "id": "v1.3-07-baseline-exact-base",
+  "profile": "v1.3",
+  "title": "Dirty and stale checkouts cannot stand in for the resolved base tree",
+  "spec": [
+    "\u00a73.3",
+    "\u00a72.9"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "push": true
+      }
+    },
+    {
+      "origin_commit": {
+        "files": {
+          "lib/source.txt": "GREEN\n"
+        }
+      }
+    },
+    {
+      "write": {
+        "path": "lib/source.txt",
+        "text": "DIRTY\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 5
+      }
+    },
+    {
+      "assert": {
+        "files": {
+          "{case}/checked.log": {
+            "text": "GREEN\n"
+          },
+          "lib/source.txt": {
+            "text": "DIRTY\n"
+          }
+        }
+      }
+    }
+  ],
+  "fixture_files": {
+    "lockfile": "stable\n",
+    "lib/source.txt": "RED\n",
+    "checks/baseline.sh": "#!/bin/sh\nprintf \"%s\\n\" \"$(cat lib/source.txt)\" >> \"{case}/checked.log\"\ngrep -q GREEN lib/source.txt || { echo \"lib/source.txt:1:1: error: [test/base] source: defect\"; exit 1; }\n",
+    "checks/setup.sh": "#!/bin/sh\necho setup >> \"{case}/setup.log\"\nmkdir -p build\necho product > build/product\n"
+  },
+  "project": {
+    "setup_inputs": [
+      "lockfile"
+    ],
+    "checks": [
+      {
+        "name": "baseline",
+        "argv": [
+          "sh",
+          "checks/baseline.sh"
+        ],
+        "timeout_ms": 60000
+      }
+    ]
+  }
+}

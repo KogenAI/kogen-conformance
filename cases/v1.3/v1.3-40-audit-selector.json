@@ -1,0 +1,212 @@
+{
+  "id": "v1.3-40-audit-selector",
+  "profile": "v1.3",
+  "title": "Audit advice preserves repair counts, ranking and winner across sequential and parallel rungs",
+  "spec": [
+    "\u00a73.8.2",
+    "\u00a73.8.3",
+    "\u00a73.5",
+    "\u00a73.1"
+  ],
+  "fixture": "kt",
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: {row.difficulty}\n\n## Technical approach\nImplement both required lines.\n"
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"over_strict\", \"reason\": \"Advice cannot change scoring.\"}]}"
+      },
+      "repeat": "always"
+    },
+    {
+      "id": "r1.edit",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6-luna",
+        "effort": "max",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1.finish",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6-luna",
+        "effort": "max"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    },
+    {
+      "id": "r2.edit",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt; printf 'extra\\n' > lib/extra2.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "r2.finish",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6.1-sol",
+        "effort": "medium"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    },
+    {
+      "id": "r3.edit",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt; printf 'extra\\n' > lib/extra3.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "r3.finish",
+      "expect": {
+        "role": "builder",
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    }
+  ],
+  "rows": [
+    {
+      "label": "sequential",
+      "difficulty": "easy"
+    },
+    {
+      "label": "parallel",
+      "difficulty": "hard"
+    }
+  ],
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "intent_text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting and add the required safety line.\n\n## Acceptance\n- A1: lib/greet.txt contains Hello, World!\n- A2: lib/greet.txt contains SAFE\n\n## Verify\n- A1: test\n- A2: test\n\n## Request\nWrite Hello, World! and SAFE on separate lines.\n",
+        "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\nt_A2() { grep -qx 'SAFE' lib/greet.txt; }\n"
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 1
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_json": {
+          "best_candidate": {
+            "rung": "R1",
+            "verdict": "unverified"
+          },
+          "advisory_items": []
+        }
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "audit"
+        },
+        "events": {
+          "slug": "greet",
+          "contains": [
+            "repair",
+            {
+              "event": "selection",
+              "winner_rung": "R1"
+            }
+          ],
+          "absent": [
+            "acceptance_demoted"
+          ]
+        }
+      }
+    }
+  ]
+}

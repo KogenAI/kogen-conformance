@@ -1,0 +1,64 @@
+{
+  "id": "v1.3-05-observational-default",
+  "profile": "v1.3",
+  "title": "Explicit demotion false is accepted; default policy is green",
+  "spec": [
+    "\u00a72.3",
+    "\u00a73.8.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_json": {
+          "land_policy": "green",
+          "advisory_items": []
+        }
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "audit"
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "include": "r1_happy_v12"
+    }
+  ],
+  "project": {
+    "build": {
+      "auditor_demotion": false,
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  }
+}

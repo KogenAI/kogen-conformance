@@ -1,0 +1,25 @@
+conform: 0/6 traces agree with the spec (hand 0/6, gen 0/0); 6 steps in 2125 ms
+
+✗ 01-on-base: diverges at step 1
+      1 {"tag": "Put", "value": {"id": "r1", "status": "running", "alive": false, "onBase": true, "lastEvent": "other", "incoming": true, "queued": false, "claim": true, "reason": "", "work": true, "preserved": false, "preserveOk": true}}
+      runs.r1.cleanupPending: want false, got nothing
+      runs.r1.preserveOk: want true, got nothing
+      runs.r1.preserved: want false, got nothing
+      runs.r1.work: want true, got nothing
+
+✗ 02-interrupted: diverges at step 1
+      1 {"tag": "Put", "value": {"id": "r1", "status": "running", "alive": false, "onBase": false, "lastEvent": "interrupted", "incoming": true, "queued": false, "claim": true, "reason": "", "work": true, "preserved": false, "preserveOk": true}}
+      runs.r1.cleanupPending: want false, got nothing
+      runs.r1.preserveOk: want true, got nothing
+      runs.r1.preserved: want false, got nothing
+      runs.r1.work: want true, got nothing
+
+✗ 03-crashed: diverges at step 1
+      1 {"tag": "Put", "value": {"id": "r1", "status": "running", "alive": false, "onBase": false, "lastEvent": "other", "incoming": true, "queued": false, "claim": true, "reason": "", "work": true, "preserved": false, "preserveOk": true}}
+      runs.r1.cleanupPending: want false, got nothing
+      runs.r1.preserveOk: want true, got nothing
+      runs.r1.preserved: want false, got nothing
+      runs.r1.work: want true, got nothing
+
+divergence classes (first differing event -> fields):
+     6 × Put -> runs.<id>.cleanupPending, runs.<id>.preserveOk, runs.<id>.preserved, runs.<id>.work   e.g. 01-on-base

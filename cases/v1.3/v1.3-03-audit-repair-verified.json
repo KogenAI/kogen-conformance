@@ -1,0 +1,181 @@
+{
+  "id": "v1.3-03-audit-repair-verified",
+  "profile": "v1.3",
+  "title": "Only repaired bytes with a new green verification land",
+  "spec": [
+    "\u00a73.8.2",
+    "\u00a73.7.2"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "intent_text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting and add the required safety line.\n\n## Acceptance\n- A1: lib/greet.txt contains Hello, World!\n- A2: lib/greet.txt contains SAFE\n\n## Verify\n- A1: test\n- A2: test\n\n## Request\nWrite Hello, World! and SAFE on separate lines.\n",
+        "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\nt_A2() { grep -qx 'SAFE' lib/greet.txt; }\n"
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "events": {
+          "slug": "greet",
+          "subsequence": [
+            {
+              "event": "verification",
+              "result": "red"
+            },
+            {
+              "event": "audit",
+              "mode": "observational"
+            },
+            "repair",
+            {
+              "event": "verification",
+              "result": "green"
+            },
+            {
+              "event": "finished",
+              "status": "landed"
+            }
+          ],
+          "absent": [
+            "acceptance_demoted"
+          ]
+        }
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_json": {
+          "status": "landed",
+          "verdict": "green",
+          "acceptance": {
+            "$contains": [
+              {
+                "id": "A2",
+                "status": "pass",
+                "demoted": false
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "audit"
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"contradicts\", \"reason\": \"advice\"}]}"
+      }
+    },
+    {
+      "id": "repair",
+      "expect": {
+        "role": "builder",
+        "input_contains": "A2"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\nSAFE\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "repaired",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  }
+}

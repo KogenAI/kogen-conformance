@@ -1,0 +1,160 @@
+{
+  "name": "07-rerun-clears-suite",
+  "about": "A failed runner exit blocks the whole scored run; a complete successful reverification can land while preserving baselines and offers.",
+  "steps": [
+    {
+      "do": [
+        "Baseline",
+        {
+          "name": "c1",
+          "status": "red"
+        }
+      ]
+    },
+    {
+      "do": [
+        "Now",
+        {
+          "name": "c1",
+          "status": "red",
+          "hasIds": true,
+          "subset": true,
+          "sameExit": true
+        }
+      ]
+    },
+    {
+      "do": [
+        "Offer",
+        {
+          "rung": "1",
+          "passed": 1,
+          "blocking": 0,
+          "diff": 2
+        }
+      ]
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": false,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ],
+      "expect": {
+        "ledger": "suite"
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A2",
+          "kind": "keep",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false
+      }
+    },
+    {
+      "do": [
+        "Now",
+        {
+          "name": "c1",
+          "status": "red",
+          "hasIds": true,
+          "subset": true,
+          "sameExit": true
+        }
+      ],
+      "expect": {
+        "excused": {
+          "c1": true
+        }
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ],
+      "expect": {
+        "ledger": "pass",
+        "items": {
+          "A1": {
+            "passed": true
+          }
+        },
+        "offers": {
+          "1": {
+            "passed": 1,
+            "blocking": 0,
+            "diff": 2
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A2",
+          "kind": "keep",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": true,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "verdict": "green",
+        "landable": true,
+        "excused": {
+          "c1": true
+        }
+      }
+    }
+  ]
+}

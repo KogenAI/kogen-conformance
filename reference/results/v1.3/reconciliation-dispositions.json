@@ -1,0 +1,1458 @@
+{
+  "counts": {
+    "a": 51,
+    "b": 89,
+    "c": 5
+  },
+  "original_counts": {
+    "a": 51,
+    "b": 80,
+    "c": 5
+  },
+  "cases": {
+    "build-39": {
+      "category": "a",
+      "spec": "§3.3, §3.4 B5",
+      "observed": "Approval setup depends on an untracked .setup-ok checkout marker absent from the exact base scratch checkout.",
+      "disposition": "Exact-base approval cannot see an untracked checkout marker. Place a readable setup-success marker outside disposable scratch and remove it before Build. Require two setup-failure markers in retained logs plus stopped/queued status; do not write counters outside confinement.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "custody-02": {
+      "category": "a",
+      "spec": "§3.3, §5.3",
+      "observed": "Fixture replaces a tracked check in the dirty checkout; base-tree verification runs the committed check, so its expected PID file is absent.",
+      "disposition": "Exact-base scratch is permitted. Observe the trapped child PID outside scratch; retain the deadline and dead-process assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "custody-03": {
+      "category": "a",
+      "spec": "§3.3, §5.3",
+      "observed": "Fixture replaces a tracked check in the dirty checkout; base-tree verification runs the committed check, so its expected PID file is absent.",
+      "disposition": "Exact-base scratch is permitted. Observe the grandchild PID outside scratch; retain the deadline and dead-process assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "custody-04": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "exunit-01": {
+      "category": "c",
+      "spec": "§2.8, §2.4.1, §5.3, §1.7.4",
+      "observed": "Fake-provider HTTP 400 before the target behavior: stale schema subset.",
+      "disposition": "Rust wrote the candidate ledger under reports/. Publish a private ledger.jsonl at the run root and permit this file through confinement without granting sibling state writes. Keep exact rows and plain landed output; fix shared schemas and finish-alone fixture completion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b"
+      ],
+      "final_status": "pass"
+    },
+    "exunit-02": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "exunit-03": {
+      "category": "c",
+      "spec": "§1.7.4, §3.6, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: stale schema subset.",
+      "disposition": "Rust printed a literal tilde copied from matcher syntax. Require the exact plain landed line. Shared schemas and finish-alone fake completion retain the compile-failure repair scenario. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b"
+      ],
+      "final_status": "pass"
+    },
+    "exunit-04": {
+      "category": "c",
+      "spec": "§2.4.3–4, §3.3, §3.7",
+      "observed": "Inherited parser gap: unit baseline is red (exit 2) with no parsed findings; the case expects a named ExUnit test finding.",
+      "disposition": "Rust approval used only GNU-style findings and dropped named ExUnit failures. Share adapter-aware full-log parsing with candidate checks; version cached identities. Preserve baseline excusal and reject a different named failure. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b"
+      ],
+      "final_status": "pass"
+    },
+    "exunit-05": {
+      "category": "c",
+      "spec": "§2.3, §2.4.3, §3.2.3(4)",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Rust omitted the adapter-default Shape formatter when format was unset. Derive ExUnit formatter and explicitly include hidden acceptance source. Keep exact formatted bytes; include both quoted request constraints in the coverage fake.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "exunit-06": {
+      "category": "c",
+      "spec": "§1.7.4, §2.4.3, §3.6, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: stale schema subset.",
+      "disposition": "Rust printed a literal tilde copied from matcher syntax. Require the exact plain landed line. Keep the run-dir formatter/workspace exclusion checks; fix shared schemas and finish-alone fake completion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b"
+      ],
+      "final_status": "pass"
+    },
+    "format-07": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "provider-22": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "provider-24": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "provider-26": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-01": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-03": {
+      "category": "b",
+      "spec": "§1.7.1, §3.2.3(1)",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Public substitution missed encoded stdin/golden bytes. Substitute the same neutral name in both; keep CRLF and exact-byte comparison. Shared schemas/fresh decoder also apply.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-04": {
+      "category": "b",
+      "spec": "§1.7.1, §3.2.3(1)",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Public substitution missed encoded stdin/golden bytes. Substitute the same neutral name in both; preserve invalid UTF-8 bytes and exact-byte comparison. Shared schemas/fresh decoder also apply.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-06": {
+      "category": "a",
+      "spec": "§3.2.1–2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Role instructions follow the static developer prefix. Assert marker over system/developer prompt and the original anchored task pattern over the first user message. Preserve gate-path inclusion/exclusion and model/effort checks.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-07": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-08": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-09": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-10": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-11": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-15": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-16": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-17": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-18": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-21": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-23": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-24": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "shape-25": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "state-28": {
+      "category": "a",
+      "spec": "§3.3, §2.9",
+      "observed": "Fixture edits a tracked check without committing it and expects its counter in the dirty checkout; v1.3 checks the resolved base in scratch.",
+      "disposition": "Exact-base scratch is permitted. Observe check executions outside scratch; still require exactly one baseline check across card/hash calls.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-04-cache-key-session-headers": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "The single-input turn detector offsets the unscoped fake script; replies reach the wrong stages and its selected builder sequence contains distinct conversations.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-06-crash-after-base-cas": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-100-ladder-32": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-101-ladder-33": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-102-ladder-34": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-103-ladder-35": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-104-provider-01": {
+      "category": "a",
+      "spec": "§4.2, §4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Injected requests retain seven canonical schemas and the exact three allowed shell-builder tools; move the role marker to the provider-visible system/developer prompt. Retain forbidden fields and header assertions. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-105-provider-02": {
+      "category": "a",
+      "spec": "§4.2, §4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Owned additional_tools retains seven canonical schemas. Builder permissions remain exactly shell/finish/tool_output; planner remains none. Retain complete body/header checks and absence of top-level tools. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-106-provider-03": {
+      "category": "a",
+      "spec": "§4.2, §4.7, §4.9.2",
+      "observed": "Explicit assertion expects a three-schema planner body; v1.3 requires the complete seven canonical schemas.",
+      "disposition": "Tool-less roles retain seven shared schemas with tool_choice none; do not restore obsolete three-schema lists.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-107-provider-04": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-108-provider-06": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-109-provider-07": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-110-provider-08": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-111-provider-09": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-112-provider-11": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-113-provider-12": {
+      "category": "b",
+      "spec": "§4.5, §4.8.2, §4.9.2",
+      "observed": "The fake served three flaky planner attempts; the successful r1_happy plan/edit/done stayed unconsumed. Retry-success script compatibility with the new prefix remains unresolved.",
+      "disposition": "Fix fresh prefix decoding so the three retry attempts and eventual successful plan/edit/finish consume the intended script; keep identical-retry and success assertions. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-114-provider-14": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-115-provider-17": {
+      "category": "a",
+      "spec": "§4.5, §4.7, §4.9.2",
+      "observed": "After the injected drop, the fake rejects later planner requests; the r1_happy template still expects the old schema subset and initial-turn codec.",
+      "disposition": "Fix fresh decoding and obsolete schema subset after the injected drop; retain continuation/retry/script-consumption checks and exact role permissions. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-116-provider-18": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-117-provider-20": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-118-provider-25": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-119-custody-06": {
+      "category": "b",
+      "spec": "§3.3, §5.3",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Arm the malicious checkout mutation only after exact-base approval. Retain the original Build-confinement assertions: unchanged checkout and no escaped file.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-120-custody-07": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-121-custody-08": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-122-custody-09": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-123-custody-10": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-124-build-31": {
+      "category": "b",
+      "spec": "§3.2.8, §4.5, §4.8.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode fresh prefixes and stream legal SSE comment keepalives during the synchronous reapproval side effect. Preserve first-byte/idle/total deadlines, stale-approval stop, queued status and fake-script consumption. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-126-state-15": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-127-build-10": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-129-cli-27": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-132-state-23": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-133-state-26": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-134-state-27": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-135-shape-26": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-136-format-10": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-137-format-12": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-28-provider-13-planner-no-fallback": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-29-provider-15-idle-stall": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-30-provider-16-total-cap": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-31-provider-23-tool-result-budget": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-37-build-02": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Move explicit role-marker checks to the provider-visible developer prompt and retain original Builder behavior, tool results, finish and landing checks. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-38-build-03": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-39-build-04": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-40-build-05": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-41-build-06": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-42-build-07": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-43-build-08": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-44-build-09": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-45-build-11": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-46-build-12": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-47-build-13": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-48-build-14": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-49-build-15": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-50-build-16": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-51-build-17": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-52-build-18": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-53-build-19": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-54-build-20": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-55-build-21": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-56-build-22": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-57-build-23": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-58-build-24": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-59-build-25": {
+      "category": "b",
+      "spec": "§3.9.2, §4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Fix fresh decoding and restore distinct base/candidate greetings lost in public substitutions. Require rebase_conflict repair in the journal as well as the original final-state/ref assertions. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-60-build-26": {
+      "category": "b",
+      "spec": "§3.9.2, §4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Fix fresh decoding and restore distinct base/candidate greetings lost in public substitutions. Require rebase_conflict repair in the journal as well as stopped provider status and absent escaped landing. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-61-build-27": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-62-build-28": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-63-build-29": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-64-build-30": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-65-build-33": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Apply the same exact §1.7.4 plain landed line inside nested wait expectations; a literal tilde remains rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-66-build-34": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-67-build-43": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-68-build-44": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-69-ladder-01": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-70-ladder-02": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-71-ladder-03": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-72-ladder-04": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-80-ladder-12": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-81-ladder-13": {
+      "category": "b",
+      "spec": "§3.5, §4.5",
+      "observed": "Fresh pristine run additionally exhausted the scaled wall budget under competing host load.",
+      "disposition": "Harness run contention spent the strict scaled wall budget. Keep all assertions and deadlines; use an isolated RAM full gate with bounded case concurrency.",
+      "source": "fresh-baseline-additional",
+      "final_status": "pass"
+    },
+    "v1.2-82-ladder-14": {
+      "category": "b",
+      "spec": "§3.5, §4.5",
+      "observed": "Fresh pristine run additionally exhausted the scaled wall budget under competing host load.",
+      "disposition": "Harness run contention spent the strict scaled wall budget. Keep all assertions and deadlines; use an isolated RAM full gate with bounded case concurrency.",
+      "source": "fresh-baseline-additional",
+      "final_status": "pass"
+    },
+    "v1.2-84-ladder-16": {
+      "category": "b",
+      "spec": "§3.5, §4.5",
+      "observed": "Fresh pristine run additionally exhausted the scaled wall budget under competing host load.",
+      "disposition": "Harness run contention spent the strict scaled wall budget. Keep all assertions and deadlines; use an isolated RAM full gate with bounded case concurrency.",
+      "source": "fresh-baseline-additional",
+      "final_status": "pass"
+    },
+    "v1.2-86-ladder-18": {
+      "category": "b",
+      "spec": "§3.5, §4.5",
+      "observed": "Fresh pristine run additionally exhausted the scaled wall budget under competing host load.",
+      "disposition": "Harness run contention spent the strict scaled wall budget. Keep all assertions and deadlines; use an isolated RAM full gate with bounded case concurrency.",
+      "source": "fresh-baseline-additional",
+      "final_status": "pass"
+    },
+    "v1.2-87-ladder-19": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fresh builder requests are classified as turn=null; the unscoped stall response is served while r1.edit/r1.done (turn 1/2) stay unconsumed.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-88-ladder-20": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-89-ladder-21": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-90-ladder-22": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-91-ladder-23": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "b",
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-92-ladder-24": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-94-ladder-26": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-95-ladder-27": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-96-ladder-28": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-97-ladder-29": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion. Also enforce §1.7.4: plain landed output, without a literal matcher tilde. Correct the Rust emitter and inherited escaped-marker expectations; an extra-tilde fake is rejected.",
+      "source": "original-136",
+      "additional_categories": [
+        "c"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-98-ladder-30": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.2-99-ladder-31": {
+      "category": "b",
+      "spec": "§3.5, §4.5",
+      "observed": "Fresh pristine run additionally exhausted the scaled wall budget under competing host load.",
+      "disposition": "Harness run contention spent the strict scaled wall budget. Keep all assertions and deadlines; use an isolated RAM full gate with bounded case concurrency.",
+      "source": "fresh-baseline-additional",
+      "final_status": "pass"
+    },
+    "v1.3-05-observational-default": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-11-cross-session-prefix": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-12-shape-receipt": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-13-shape-turn-fallback": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-16-shape-passes-fallback": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-17-shape-six-passes": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-18-shape-retry-usage": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-31-shape-style": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-32-shape-combined-repair": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-34-grok-fallback": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-35-machine-fallback": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-36-recovery-adopt-publication": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "observed": "step 13 (assert): refs under refs/kogen/candidates/0000aedc6ac6c787299bcbffde7f15a2/: 2, expected 1",
+      "disposition": "The confined child cannot write the external workspace marker. Remove that forbidden write and observe the exact workspace path defined by §5.4 from the harness, with an explicit missing-directory failure. Retain exact publication counts, immutable prior refs, complete snapshot bytes/modes and live-owner/cleanup assertions; original recovery mutants remain killed.",
+      "source": "ram-confinement-additional",
+      "final_status": "pass"
+    },
+    "v1.3-37-recovery-create-only": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "observed": "step 8 (sh): sh: exit 1, expected 0 (stderr: cat: $WORKDIR/v1.3-37-recovery-create-only/workspace: No such file or directory\nsh: /lib/greet.txt: No such file or directory\n)",
+      "disposition": "The confined child cannot write the external workspace marker. Remove that forbidden write and observe the exact workspace path defined by §5.4 from the harness, with an explicit missing-directory failure. Retain exact publication counts, immutable prior refs, complete snapshot bytes/modes and live-owner/cleanup assertions; original recovery mutants remain killed.",
+      "source": "ram-confinement-additional",
+      "final_status": "pass"
+    },
+    "v1.3-38-recovery-post-cas": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-39-recovery-live-owner": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "observed": "step 6 (sh): sh: exit 1, expected 0 (stderr: cat: $WORKDIR/v1.3-39-recovery-live-owner/workspace: No such file or directory\ncat: /lib/greet.txt: No such file or directory\n); step 6 (sh): sh: stdout differs from expected 'Latest candidate\\n' (lengths 17 vs 0; got tail '') (stderr: cat: $WORKDIR/v1.3-39-recovery-live-owner/workspace: No such file or directory\ncat: /lib/greet.txt: No such file or directory\n)",
+      "disposition": "The confined child cannot write the external workspace marker. Remove that forbidden write and observe the exact workspace path defined by §5.4 from the harness, with an explicit missing-directory failure. Retain exact publication counts, immutable prior refs, complete snapshot bytes/modes and live-owner/cleanup assertions; original recovery mutants remain killed.",
+      "source": "ram-confinement-additional",
+      "final_status": "pass"
+    },
+    "v1.3-40-audit-selector": {
+      "category": "b",
+      "spec": "§2.8, §3.8.2–3",
+      "observed": "The contains matcher compares the string repair with whole event objects. The actual repair and R1 selection events exist; the diagnostic object matcher passes both instances.",
+      "disposition": "Interpret a contains string as an event-name predicate, consistently with subsequence. Keep repair-count, ranking and R1-selection assertions; missing repair still fails.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-41-recovery-failure-retry": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "observed": "step 11 (sh): sh: exit 1, expected 0 (stderr: cat: $WORKDIR/v1.3-41-recovery-failure-retry/workspace: No such file or directory\ncat: /lib/greet.txt: No such file or directory\n); step 11 (sh): sh: stdout differs from expected 'Latest candidate\\n' (lengths 17 vs 0; got tail '') (stderr: cat: $WORKDIR/v1.3-41-recovery-failure-retry/workspace: No such file or directory\ncat: /lib/greet.txt: No such file or directory\n)",
+      "disposition": "The confined child cannot write the external workspace marker. Remove that forbidden write and observe the exact workspace path defined by §5.4 from the harness, with an explicit missing-directory failure. Retain exact publication counts, immutable prior refs, complete snapshot bytes/modes and live-owner/cleanup assertions; original recovery mutants remain killed.",
+      "source": "ram-confinement-additional",
+      "final_status": "pass"
+    },
+    "v1.3-43-shape-last-pass": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector.",
+      "disposition": "Decode a fresh request after static/role developer and additional_tools prefixes; compare complete prior input for later append-only turns. Retain turn/history and every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-44-run-schema": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    },
+    "v1.3-45-report-default": {
+      "category": "a",
+      "spec": "§4.7, §4.9.2",
+      "observed": "Fake-provider HTTP 400 before the target behavior: single-input fresh/turn detector, stale schema subset.",
+      "disposition": "Replace obsolete role-filtered schema expectations with all seven canonical definitions plus exact role-scoped callable tools. Fix initial-turn decoder if needed; retain every scenario outcome/assertion.",
+      "source": "original-136",
+      "final_status": "pass"
+    }
+  },
+  "already_green_cases": {
+    "v1.2-05-missing-usage": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "disposition": "Decode the first user history after static/role prefixes; reject prior assistant history presented as fresh. Preserve the original null usage and null cache-hit rate assertions.",
+      "shared_mutation_controls": [
+        "fresh-turn"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-83-ladder-15": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "disposition": "Decode the first user history after static/role prefixes; reject prior assistant history presented as fresh. Preserve the original selector preference for fewer findings at equal acceptance scores assertions.",
+      "shared_mutation_controls": [
+        "fresh-turn"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-85-ladder-17": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "disposition": "Decode the first user history after static/role prefixes; reject prior assistant history presented as fresh. Preserve the original emission of the unverified best candidate assertions.",
+      "shared_mutation_controls": [
+        "fresh-turn"
+      ],
+      "final_status": "pass"
+    },
+    "v1.2-93-ladder-25": {
+      "category": "b",
+      "spec": "§4.8.2, §4.9.2",
+      "disposition": "Decode the first user history after static/role prefixes; reject prior assistant history presented as fresh. Preserve the original omission of the candidate verdict from slug status assertions.",
+      "shared_mutation_controls": [
+        "fresh-turn"
+      ],
+      "final_status": "pass"
+    },
+    "v1.3-22-recovery-first": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "disposition": "Remove the unused out-of-confinement marker write from the shell fake. Exact latest recovery contents, modes, identity and retention remain asserted, and the original recovery mutation is rejected.",
+      "source": "already-green-recovery-marker",
+      "final_status": "pass"
+    },
+    "v1.3-23-recovery-later": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "disposition": "Remove the unused out-of-confinement marker write from the shell fake. Exact latest recovery contents, modes, identity and retention remain asserted, and the original recovery mutation is rejected.",
+      "source": "already-green-recovery-marker",
+      "final_status": "pass"
+    },
+    "v1.3-24-recovery-ref-failure": {
+      "category": "b",
+      "spec": "§5.3, §5.4, §3.10",
+      "disposition": "Remove the unused out-of-confinement marker write from the shell fake. Exact latest recovery contents, modes, identity and retention remain asserted, and the original recovery mutation is rejected.",
+      "source": "already-green-recovery-marker",
+      "final_status": "pass"
+    }
+  }
+}

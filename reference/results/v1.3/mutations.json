@@ -1,0 +1,463 @@
+[
+  {
+    "id": "v1.3-01-observational-auditor",
+    "mutation": "demote",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "audit: advisory_items must be empty",
+      "audit: all approved items must remain undemoted",
+      "audit: acceptance_demoted is forbidden"
+    ]
+  },
+  {
+    "id": "v1.3-02-malformed-audit",
+    "mutation": "suppress-audit-warning",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "audit: malformed/unknown/duplicate replies require a warning"
+    ]
+  },
+  {
+    "id": "v1.3-03-audit-repair-verified",
+    "mutation": "skip-verification",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: subsequence element {'event': 'verification', 'result': 'green'} not found in order"
+    ]
+  },
+  {
+    "id": "v1.3-04-demotion-refused",
+    "mutation": "accept-experimental",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "exit 0, expected 3",
+      "stdout does not contain 'build.auditor_demotion has no admitted calibration'"
+    ]
+  },
+  {
+    "id": "v1.3-05-observational-default",
+    "mutation": "reject-false",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.exit: expected 0, got 3"
+    ]
+  },
+  {
+    "id": "v1.3-06-baseline-source-tree",
+    "mutation": "stale-baseline",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 'RED\\nGREEN\\n', got 'RED\\n'"
+    ]
+  },
+  {
+    "id": "v1.3-07-baseline-exact-base",
+    "mutation": "dirty-base",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 'GREEN\\n', got 'DIRTY\\n'"
+    ]
+  },
+  {
+    "id": "v1.3-08-baseline-context",
+    "mutation": "ignore-check-context",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 'GREEN\\nGREEN\\n', got 'GREEN\\n'"
+    ]
+  },
+  {
+    "id": "v1.3-09-baseline-regression",
+    "mutation": "excuse-regression",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.verdict: expected 'unverified', got 'green'",
+      "$.checks: no element matches {'name': 'baseline', 'excused': False}"
+    ]
+  },
+  {
+    "id": "v1.3-10-reusable-prefix",
+    "mutation": "rewrite-history",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "prefix: history rewritten rather than appended"
+    ]
+  },
+  {
+    "id": "v1.3-11-cross-session-prefix",
+    "mutation": "prefix-pollution",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "prefix: generic instructions or canonical schemas changed"
+    ]
+  },
+  {
+    "id": "v1.3-12-shape-receipt",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 1, got 2",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-13-shape-turn-fallback",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 1, got 2",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-14-shape-turn-exhausted",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 0, got 1",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-15-shape-last-turn",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 1, got 2",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-16-shape-passes-fallback",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 4, got 5",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-17-shape-six-passes",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 6, got 7",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-18-shape-retry-usage",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-19-shape-provider-failure",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 0, got 1",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-20-fallback-role-rejected",
+    "mutation": "accept-experimental",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "exit 0, expected 3",
+      "stdout does not contain 'build.roles has unknown role \"fallback_shaper\"'"
+    ]
+  },
+  {
+    "id": "v1.3-21-cross-provider-role-rejected",
+    "mutation": "accept-experimental",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "exit 0, expected 3",
+      "stdout does not match /(?i)(shaper|model).*(provider|grok)/"
+    ]
+  },
+  {
+    "id": "v1.3-22-recovery-first",
+    "mutation": "lose-latest",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "recovery: latest edits/deletions/untracked/modes/symlinks lost"
+    ]
+  },
+  {
+    "id": "v1.3-23-recovery-later",
+    "mutation": "lose-latest",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "recovery: latest edits/deletions/untracked/modes/symlinks lost"
+    ]
+  },
+  {
+    "id": "v1.3-24-recovery-ref-failure",
+    "mutation": "lose-latest",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "recovery: latest edits/deletions/untracked/modes/symlinks lost"
+    ]
+  },
+  {
+    "id": "v1.3-25-cache-production",
+    "mutation": "production-gate",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.qualification: expected 'inapplicable', got 'fail'"
+    ]
+  },
+  {
+    "id": "v1.3-26-cache-blocks",
+    "mutation": "ignore-blocks",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.requests[1].eligible_input: expected 2048, got 2500"
+    ]
+  },
+  {
+    "id": "v1.3-27-cache-incomplete",
+    "mutation": "unknown-is-miss",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.partial: expected True, got False",
+      "$.requests[0].measurement: expected 'incomplete', got 'miss'"
+    ]
+  },
+  {
+    "id": "v1.3-28-cache-feasible",
+    "mutation": "lower-threshold",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.qualification: expected 'pass', got 'fail'"
+    ]
+  },
+  {
+    "id": "v1.3-29-cache-infeasible",
+    "mutation": "accept-infeasible",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected True, got False"
+    ]
+  },
+  {
+    "id": "v1.3-30-cache-miss-vs-incomplete",
+    "mutation": "incomplete-is-pass",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.qualification: expected 'incomplete', got 'pass'"
+    ]
+  },
+  {
+    "id": "v1.3-31-shape-style",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 1, got 2",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-32-shape-combined-repair",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 2, got 3",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-33-shape-stream-continuation",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-34-grok-fallback",
+    "mutation": "cross-provider-fallback",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.conversations[1].model: expected 'grok-4.6', got 'gpt-6.1-sol'"
+    ]
+  },
+  {
+    "id": "v1.3-35-machine-fallback",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 4, got 5",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-36-recovery-adopt-publication",
+    "mutation": "duplicate-publication",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 1, got 2"
+    ]
+  },
+  {
+    "id": "v1.3-37-recovery-create-only",
+    "mutation": "overwrite-candidate",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 2, got 1"
+    ]
+  },
+  {
+    "id": "v1.3-38-recovery-post-cas",
+    "mutation": "lose-latest",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "recovery: latest edits/deletions/untracked/modes/symlinks lost"
+    ]
+  },
+  {
+    "id": "v1.3-39-recovery-live-owner",
+    "mutation": "destroy-live",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected True, got False"
+    ]
+  },
+  {
+    "id": "v1.3-40-audit-selector",
+    "mutation": "rank-advice",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.best_candidate.rung: expected 'R1', got 'R3'"
+    ]
+  },
+  {
+    "id": "v1.3-41-recovery-failure-retry",
+    "mutation": "lose-latest",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "recovery: latest edits/deletions/untracked/modes/symlinks lost"
+    ]
+  },
+  {
+    "id": "v1.3-42-baseline-environment",
+    "mutation": "stale-environment",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$: expected 'red\\ngreen\\n', got 'red\\n'"
+    ]
+  },
+  {
+    "id": "v1.3-43-shape-last-pass",
+    "mutation": "shape-counter",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "shape: $.validation_passes: expected 6, got 7",
+      "shape: totals count actual traversals, not fallback slot labels"
+    ]
+  },
+  {
+    "id": "v1.3-44-run-schema",
+    "mutation": "old-run-schema",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.recovery: missing",
+      "$.cleanup_pending: missing"
+    ]
+  },
+  {
+    "id": "v1.3-45-report-default",
+    "mutation": "legacy-default-policy",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.land_policy: expected 'green', got 'green-or-advisory'"
+    ]
+  },
+  {
+    "id": "v1.3-46-valid-config",
+    "mutation": "valid-config-refused",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "$.exit: expected 0, got 3"
+    ]
+  },
+  {
+    "id": "v1.3-47-request-exhaustion-resumes-queued-intent",
+    "mutation": "fail-stopped-intent",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "stdout differs from expected 'greet: queued, 1 of 1\\n' (first difference at char 7: expected 'greet: queued, 1 of 1\\n', got 'greet: failed, 1 of 1\\n')",
+      "journal last $.status: expected 'stopped', got 'failed'"
+    ]
+  },
+  {
+    "id": "v1.3-48-429-no-refresh",
+    "mutation": "refresh-usage-limit",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "fake oauth token:refresh_token requests: 1, expected 0"
+    ]
+  },
+  {
+    "id": "v1.3-49-sse-rate-limit-no-refresh",
+    "mutation": "refresh-usage-limit",
+    "control": "pass",
+    "mutant": "killed",
+    "diagnostics": [
+      "fake oauth token:refresh_token requests: 1, expected 0"
+    ]
+  }
+]

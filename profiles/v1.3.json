@@ -1,0 +1,59 @@
+{
+  "version": "1.3",
+  "spec_revision": "2e6667eae0d626a5b894588aa465bab35b999928",
+  "superseded": {
+    "v1.2-73-ladder-05": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-74-ladder-06": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-75-ladder-07": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-76-ladder-08": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-77-ladder-09": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-78-ladder-10": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-79-ladder-11": {
+      "replacement": "v1.3-01-observational-auditor",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-03-consecutive-request-byte-prefix": {
+      "replacement": "v1.3-10-reusable-prefix",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "shape-12": {
+      "replacement": "v1.3-16-shape-passes-fallback",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "shape-13": {
+      "replacement": "v1.3-17-shape-six-passes",
+      "reason": "Superseded by the pinned v1.3-draft normative contract"
+    },
+    "v1.2-130-state-11": {
+      "replacement": "v1.3-44-run-schema",
+      "reason": "v1.3 schema/config/default-policy change"
+    },
+    "v1.2-131-state-12": {
+      "replacement": "v1.3-45-report-default",
+      "reason": "v1.3 schema/config/default-policy change"
+    },
+    "state-03": {
+      "replacement": "v1.3-46-valid-config",
+      "reason": "v1.3 schema/config/default-policy change"
+    }
+  },
+  "projection": "kogen_conformance/v13.py; inherited schema/marker/landing-line/exact-base/recovery fixtures migrate only when v1.3 is selected"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "v1.3-42-baseline-environment",
+  "profile": "v1.3",
+  "title": "Changed effective child environment misses baseline at the identical checked source tree",
+  "spec": [
+    "\u00a72.9",
+    "\u00a73.3"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "push": true
+      }
+    },
+    {
+      "write": {
+        "path": "{case}/stubs/mise",
+        "mode": "0755",
+        "text": "#!/bin/sh\ncase \"$1\" in env) echo '{\"CHECK_CONTEXT\":\"red\"}';; exec) shift; while [ $# -gt 0 ] && [ \"$1\" != -- ]; do shift; done; shift; exec \"$@\";; --version) echo \"mise fixture-v1\";; esac\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 5
+      }
+    },
+    {
+      "write": {
+        "path": "{case}/stubs/mise",
+        "mode": "0755",
+        "text": "#!/bin/sh\ncase \"$1\" in env) echo '{\"CHECK_CONTEXT\":\"green\"}';; exec) shift; while [ $# -gt 0 ] && [ \"$1\" != -- ]; do shift; done; shift; exec \"$@\";; --version) echo \"mise fixture-v1\";; esac\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 5
+      }
+    },
+    {
+      "assert": {
+        "files": {
+          "{case}/context.log": {
+            "text": "red\ngreen\n"
+          }
+        }
+      }
+    }
+  ],
+  "fixture_files": {
+    "lockfile": "stable\n",
+    "lib/source.txt": "GREEN\n",
+    "checks/baseline.sh": "#!/bin/sh\nprintf \"%s\\n\" \"$CHECK_CONTEXT\" >> \"{case}/context.log\"\ntest \"$CHECK_CONTEXT\" = green\n",
+    "checks/setup.sh": "#!/bin/sh\necho setup >> \"{case}/setup.log\"\nmkdir -p build\necho product > build/product\n"
+  },
+  "project": {
+    "setup_inputs": [
+      "lockfile"
+    ],
+    "checks": [
+      {
+        "name": "baseline",
+        "argv": [
+          "sh",
+          "checks/baseline.sh"
+        ],
+        "timeout_ms": 60000
+      }
+    ]
+  }
+}

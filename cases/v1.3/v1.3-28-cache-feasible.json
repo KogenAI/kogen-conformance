@@ -1,0 +1,31 @@
+{
+  "id": "v1.3-28-cache-feasible",
+  "profile": "v1.3",
+  "title": "cache feasible",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "v1.3/28-cache-feasible.json",
+        "expect": {
+          "qualification": "pass",
+          "live_release_qualified": false,
+          "requests": [
+            {},
+            {},
+            {
+              "qualification": "pass",
+              "total_input": 4296,
+              "cached_input": 4096
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

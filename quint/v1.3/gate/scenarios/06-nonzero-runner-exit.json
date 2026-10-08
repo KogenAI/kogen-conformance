@@ -1,0 +1,41 @@
+{
+  "name": "06-nonzero-runner-exit",
+  "about": "Passing item rows with a failing runner exit create a suite failure and cannot land.",
+  "steps": [
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "ok",
+          "runnerDown": false,
+          "exit0": false,
+          "mutated": false,
+          "failed": 0,
+          "rows": 1
+        }
+      ],
+      "expect": {
+        "ledger": "suite",
+        "items": {
+          "A1": {
+            "passed": true
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Score",
+        {
+          "policy": "green"
+        }
+      ],
+      "expect": {
+        "verdict": "unverified",
+        "landable": false
+      }
+    }
+  ]
+}

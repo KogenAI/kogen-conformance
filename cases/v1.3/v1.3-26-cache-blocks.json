@@ -1,0 +1,34 @@
+{
+  "id": "v1.3-26-cache-blocks",
+  "profile": "v1.3",
+  "title": "cache blocks",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "v1.3/26-cache-blocks.json",
+        "expect": {
+          "requests": [
+            {
+              "eligible_input": 0,
+              "zero_eligible": true,
+              "eligible_prefix_reuse": null
+            },
+            {
+              "eligible_input": 2048,
+              "eligible_prefix_reuse": 1.0
+            },
+            {
+              "eligible_input": 4096
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "v1.3-10-reusable-prefix",
+  "profile": "v1.3",
+  "title": "Same-conversation provider-visible prefix and append-only input survive JSON serialization choices",
+  "spec": [
+    "\u00a74.9.2",
+    "\u00a74.9.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "prefix",
+          "select": [
+            {
+              "step": "edit"
+            },
+            {
+              "step": "inspect"
+            },
+            {
+              "step": "verify"
+            }
+          ]
+        },
+        "fake_request_sequences": [
+          {
+            "select": [
+              {
+                "step": "edit"
+              },
+              {
+                "step": "inspect"
+              },
+              {
+                "step": "verify"
+              }
+            ],
+            "same_cache_key": true,
+            "same_thread_id": true,
+            "session_header_matches_cache_key": true
+          }
+        ]
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "inspect",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "cat lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "verify",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  }
+}

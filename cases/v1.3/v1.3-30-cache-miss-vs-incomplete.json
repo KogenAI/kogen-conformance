@@ -1,0 +1,34 @@
+{
+  "id": "v1.3-30-cache-miss-vs-incomplete",
+  "profile": "v1.3",
+  "title": "cache miss vs incomplete",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "{row.fixture}",
+        "expect": {
+          "qualification": "{row.qualification}",
+          "live_release_qualified": false
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "label": "complete-miss",
+      "fixture": "v1.3/30-cache-miss-vs-incomplete-complete-miss.json",
+      "qualification": "fail"
+    },
+    {
+      "label": "missing-usage",
+      "fixture": "v1.3/30-cache-miss-vs-incomplete-missing-usage.json",
+      "qualification": "incomplete"
+    }
+  ]
+}

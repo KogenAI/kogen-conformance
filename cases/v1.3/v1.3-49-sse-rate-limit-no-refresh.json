@@ -1,0 +1,135 @@
+{
+  "id": "v1.3-49-sse-rate-limit-no-refresh",
+  "profile": "v1.3",
+  "fixture": "kt",
+  "fake": true,
+  "title": "An SSE rate_limit event pauses the Build without refreshing credentials",
+  "spec": [
+    "§4.3",
+    "§4.5",
+    "§3.11"
+  ],
+  "script": [
+    {
+      "id": "rl",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "sse": [
+          "event: error\ndata: {\"type\": \"error\", \"error\": {\"type\": \"rate_limit_exceeded\", \"message\": \"Rate limit reached for requests\"}}\n\n"
+        ]
+      }
+    },
+    {
+      "id": "r1_happy.plan",
+      "expect": {
+        "role": "planner",
+        "turn": 1,
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Acceptance criteria\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Technical approach\nReplace the single line in lib/greet.txt.\n\n## Implementation steps\n1. Write Hello, World! to lib/greet.txt.\n"
+      }
+    },
+    {
+      "id": "r1_happy.edit",
+      "expect": {
+        "role": "builder",
+        "turn": 1,
+        "tools": [
+          "shell",
+          "finish",
+          "tool_output"
+        ],
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1_happy.done",
+      "expect": {
+        "role": "builder",
+        "turn": 2,
+        "last_output_contains": "exit 0",
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "provider",
+        "login",
+        "chatgpt"
+      ],
+      "timeout": 90,
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_lines": [
+          "building greet",
+          "~landed greet [0-9a-f]{8} \\(Build [0-9a-f]{8}\\)",
+          "queue: done; 1 Build(s), 1 landed, 0 not"
+        ]
+      }
+    },
+    {
+      "assert": {
+        "events": {
+          "slug": "greet",
+          "contains": [
+            {
+              "event": "provider_wait",
+              "reason": "~(provider/)?usage_limit",
+              "wait_ms": 300000,
+              "budget_paused": true
+            }
+          ]
+        },
+        "fake_oauth_count": {
+          "token:refresh_token": 0
+        }
+      }
+    }
+  ],
+  "notes": "No Retry-After is present. Fresh owned credentials from fake login ensure the zero-refresh assertion exercises the owned refresh path. The 5 minute Build wait applies; usage limits do not refresh credentials. The builder completion line follows the v1.3 plain landed form.",
+  "needs": [
+    "login"
+  ],
+  "serial": true,
+  "auth": "owned"
+}

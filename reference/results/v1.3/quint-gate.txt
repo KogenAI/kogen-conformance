@@ -1,0 +1,13 @@
+conform: 0/5 traces agree with the spec (hand 0/5, gen 0/0); 0 steps in 2547 ms
+
+✗ 01-excuse-and-green: diverges at step 0
+      policy: want "green", got "green-or-advisory"
+
+✗ 02-new-red-blocks: diverges at step 0
+      policy: want "green", got "green-or-advisory"
+
+✗ 03-ledger: diverges at step 0
+      policy: want "green", got "green-or-advisory"
+
+divergence classes (first differing event -> fields):
+     5 × reset -> policy   e.g. 01-excuse-and-green

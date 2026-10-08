@@ -1,0 +1,371 @@
+{
+  "id": "v1.3-11-cross-session-prefix",
+  "profile": "v1.3",
+  "title": "Two Shapes, two Builds and Shape-to-Build share static instructions/schemas with distinct threads",
+  "spec": [
+    "\u00a74.9.1",
+    "\u00a74.9.2"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "snapshot": "initial"
+    },
+    {
+      "write": {
+        "path": "{case}/request1.md",
+        "text": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "{case}/request1.md"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "write": {
+        "path": "{case}/request2.md",
+        "text": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "other",
+        "{case}/request2.md"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "write": {
+        "path": "lib/greet.txt",
+        "text": "Hello!\n"
+      }
+    },
+    {
+      "commit": {
+        "message": "Independent base 1",
+        "push": true,
+        "allow_empty": true
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "git": [
+        "fetch",
+        "-q",
+        "origin"
+      ]
+    },
+    {
+      "git": [
+        "reset",
+        "--hard",
+        "origin/main"
+      ]
+    },
+    {
+      "write": {
+        "path": "lib/greet.txt",
+        "text": "Hello!\n"
+      }
+    },
+    {
+      "commit": {
+        "message": "Independent base 2",
+        "push": true,
+        "allow_empty": true
+      }
+    },
+    {
+      "approve": "other"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "prefix",
+          "select": [
+            {
+              "step": "shape1.write"
+            },
+            {
+              "step": "shape2.write"
+            },
+            {
+              "step": "build1.plan"
+            },
+            {
+              "step": "build2.plan"
+            }
+          ],
+          "cross_session": true,
+          "forbidden": [
+            "{checkout}",
+            "{case}",
+            "Make the greeting",
+            "Greet World by name"
+          ]
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "shape1.write",
+      "expect": {
+        "role": "shaper",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shape1.done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2
+      },
+      "reply": {
+        "text": "Both files are written."
+      }
+    },
+    {
+      "id": "shape1.ledger",
+      "expect": {
+        "role": "requirement_auditor"
+      },
+      "reply": {
+        "text": "{\"rows\": [{\"constraint\": \"The greeting in lib/greet.txt says Hello, World!\", \"maps_to\": \"A1\"}]}"
+      }
+    },
+    {
+      "id": "shape1.audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A1\", \"verdict\": \"valid\", \"citation\": \"\", \"reason\": \"The test checks the requested line.\"}]}"
+      }
+    },
+    {
+      "id": "shape2.write",
+      "expect": {
+        "role": "shaper",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/other/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/other.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "shape2.done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2
+      },
+      "reply": {
+        "text": "Both files are written."
+      }
+    },
+    {
+      "id": "shape2.ledger",
+      "expect": {
+        "role": "requirement_auditor"
+      },
+      "reply": {
+        "text": "{\"rows\": [{\"constraint\": \"The greeting in lib/greet.txt says Hello, World!\", \"maps_to\": \"A1\"}]}"
+      }
+    },
+    {
+      "id": "shape2.audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A1\", \"verdict\": \"valid\", \"citation\": \"\", \"reason\": \"The test checks the requested line.\"}]}"
+      }
+    },
+    {
+      "id": "build1.plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "build1.edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "build1.inspect",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "cat lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "build1.verify",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "build2.plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "build2.edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "build2.inspect",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "cat lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "build2.verify",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  }
+}

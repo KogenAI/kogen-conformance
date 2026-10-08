@@ -1,0 +1,40 @@
+{
+  "id": "v1.3-21-cross-provider-role-rejected",
+  "profile": "v1.3",
+  "title": "A selected Grok provider refuses a ChatGPT shaper override before credentials",
+  "spec": [
+    "\u00a72.3",
+    "\u00a74.10.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 3,
+        "stdout_regex": "(?i)(shaper|model).*(provider|grok)"
+      }
+    }
+  ],
+  "env": {
+    "KOGEN_BENCH_PROVIDER": "grok"
+  },
+  "project": {
+    "build": {
+      "roles": {
+        "shaper": {
+          "model": "gpt-6.1-sol",
+          "effort": "high"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "v1.3-47-request-exhaustion-resumes-queued-intent",
+  "profile": "v1.3",
+  "fixture": "kt",
+  "fake": true,
+  "title": "Request exhaustion stops the drain and the next queue action resumes the queued Intent",
+  "spec": [
+    "§3.11",
+    "§4.5",
+    "§2.11"
+  ],
+  "script": [
+    {
+      "id": "planner-exhausted",
+      "expect": {
+        "role": "planner",
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "repeat": 4,
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "overloaded"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "r1_happy.plan",
+      "expect": {
+        "role": "planner",
+        "turn": 1,
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Acceptance criteria\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Technical approach\nReplace the single line in lib/greet.txt.\n\n## Implementation steps\n1. Write Hello, World! to lib/greet.txt.\n"
+      }
+    },
+    {
+      "id": "r1_happy.edit",
+      "expect": {
+        "role": "builder",
+        "turn": 1,
+        "tools": [
+          "shell",
+          "finish",
+          "tool_output"
+        ],
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "r1_happy.done",
+      "expect": {
+        "role": "builder",
+        "turn": 2,
+        "last_output_contains": "exit 0",
+        "input_contains": "Greet World by name"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 4,
+        "stderr": "",
+        "stdout_lines": [
+          "building greet",
+          "~stopped greet: provider/overload; it stays queued \\(Build [0-9a-f]{8}\\)",
+          "~queue: stopped because greet hit a provider error; 1 Build\\(s\\), 0 landed, 1 not"
+        ]
+      }
+    },
+    {
+      "assert": {
+        "events": {
+          "slug": "greet",
+          "contains": [
+            {
+              "event": "provider_retry",
+              "reason": "~(provider/)?overload"
+            }
+          ],
+          "count": {
+            "provider_retry": 3
+          },
+          "absent": [
+            "provider_switch"
+          ],
+          "last": {
+            "event": "finished",
+            "status": "stopped",
+            "reason": "provider/overload"
+          }
+        },
+        "fake_request_count": {
+          "planner": 4,
+          "builder": 0
+        }
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout": "greet: queued, 1 of 1\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0,
+        "stderr": "",
+        "stdout_lines": [
+          "building greet",
+          "~landed greet [0-9a-f]{8} \\(Build [0-9a-f]{8}\\)",
+          "queue: done; 1 Build(s), 1 landed, 0 not"
+        ]
+      }
+    },
+    {
+      "assert": {
+        "fake_request_count": {
+          "planner": 5,
+          "builder": 2
+        },
+        "fake_remaining": []
+      }
+    }
+  ],
+  "notes": "The first queue action exhausts four planner overload attempts and stops the Build with exit 4. The status check proves the Intent remains queued; a separate queue start must retry that same Intent before it can land."
+}

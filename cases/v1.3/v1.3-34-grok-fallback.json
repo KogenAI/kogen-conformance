@@ -1,0 +1,209 @@
+{
+  "id": "v1.3-34-grok-fallback",
+  "profile": "v1.3",
+  "title": "Grok primary pass exhaustion starts fresh Grok with the same effective model/effort",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.3",
+    "\u00a73.2.5",
+    "\u00a72.3"
+  ],
+  "fixture": "kt",
+  "fake": true,
+  "script": [
+    {
+      "id": "p1",
+      "expect": {
+        "role": "shaper",
+        "turn": 1,
+        "model": "grok-4.6",
+        "effort": "high"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World. TBD which punctuation.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "p1done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2,
+        "model": "grok-4.6",
+        "effort": "high"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p2",
+      "expect": {
+        "role": "shaper",
+        "turn": 3,
+        "model": "grok-4.6",
+        "last_user_contains": "Validation failed.",
+        "effort": "high"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p3",
+      "expect": {
+        "role": "shaper",
+        "turn": 4,
+        "model": "grok-4.6",
+        "last_user_contains": "Validation failed.",
+        "effort": "high"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p4",
+      "expect": {
+        "role": "shaper",
+        "turn": 1,
+        "model": "grok-4.6",
+        "effort": "high",
+        "fresh": true,
+        "input_contains": "intent_lint_failed"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "p4done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2,
+        "model": "grok-4.6",
+        "effort": "high"
+      },
+      "reply": {
+        "text": "Both files are written."
+      }
+    },
+    {
+      "id": "ledger",
+      "expect": {
+        "role": "requirement_auditor"
+      },
+      "reply": {
+        "text": "{\"rows\": [{\"constraint\": \"The greeting in lib/greet.txt says Hello, World!\", \"maps_to\": \"A1\"}]}"
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A1\", \"verdict\": \"valid\", \"citation\": \"\", \"reason\": \"The test checks the requested line.\"}]}"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "provider",
+        "login",
+        "grok"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "success",
+            "validation_passes": 4,
+            "conversations": [
+              {
+                "model": "grok-4.6",
+                "effort": "high",
+                "validation_passes": 3
+              },
+              {
+                "model": "grok-4.6",
+                "effort": "high",
+                "validation_passes": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake_config": {
+    "provider": "grok"
+  },
+  "env": {
+    "KOGEN_BENCH_PROVIDER": "grok"
+  },
+  "auth": "owned",
+  "project": {
+    "build": {
+      "roles": {
+        "builder": {
+          "model": "grok-4.6",
+          "effort": "high"
+        },
+        "shaper": {
+          "model": "grok-4.6",
+          "effort": "high"
+        }
+      }
+    }
+  }
+}

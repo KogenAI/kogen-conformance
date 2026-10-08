@@ -1,0 +1,854 @@
+[
+  {
+    "id": "custody-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-01",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-03",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-05",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-06",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "format-07",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "provider-22",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "provider-24",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "provider-26",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-01",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-03",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-06",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-07",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-08",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-09",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-10",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-11",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-15",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-16",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-17",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-18",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-21",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-23",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-24",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "shape-25",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-04-cache-key-session-headers",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-05-missing-usage",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-06-crash-after-base-cas",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-100-ladder-32",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-101-ladder-33",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-102-ladder-34",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-103-ladder-35",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-104-provider-01",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-105-provider-02",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-106-provider-03",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-107-provider-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-108-provider-06",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-109-provider-07",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-110-provider-08",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-111-provider-09",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-112-provider-11",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-113-provider-12",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-114-provider-14",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-115-provider-17",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-116-provider-18",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-117-provider-20",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-118-provider-25",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-119-custody-06",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-120-custody-07",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-121-custody-08",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-122-custody-09",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-123-custody-10",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-126-state-15",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-127-build-10",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-129-cli-27",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-132-state-23",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-133-state-26",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-134-state-27",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-135-shape-26",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-136-format-10",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-137-format-12",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-28-provider-13-planner-no-fallback",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-29-provider-15-idle-stall",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-30-provider-16-total-cap",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-31-provider-23-tool-result-budget",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-37-build-02",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-38-build-03",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-39-build-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-40-build-05",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-41-build-06",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-42-build-07",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-43-build-08",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-44-build-09",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-45-build-11",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-46-build-12",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-47-build-13",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-48-build-14",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-49-build-15",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-50-build-16",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-51-build-17",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-52-build-18",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-53-build-19",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-54-build-20",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-55-build-21",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-56-build-22",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-57-build-23",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-58-build-24",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-59-build-25",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-60-build-26",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-61-build-27",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-62-build-28",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-63-build-29",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-64-build-30",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-65-build-33",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-66-build-34",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-67-build-43",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-68-build-44",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-69-ladder-01",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-70-ladder-02",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-71-ladder-03",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-72-ladder-04",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-80-ladder-12",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-81-ladder-13",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-82-ladder-14",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-83-ladder-15",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-84-ladder-16",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-85-ladder-17",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-86-ladder-18",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-87-ladder-19",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-88-ladder-20",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-89-ladder-21",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-90-ladder-22",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-91-ladder-23",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-92-ladder-24",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-93-ladder-25",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-94-ladder-26",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-95-ladder-27",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-96-ladder-28",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-97-ladder-29",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-98-ladder-30",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-99-ladder-31",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-05-observational-default",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-11-cross-session-prefix",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-12-shape-receipt",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-13-shape-turn-fallback",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-16-shape-passes-fallback",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-17-shape-six-passes",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-18-shape-retry-usage",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-31-shape-style",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-32-shape-combined-repair",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-34-grok-fallback",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-35-machine-fallback",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-38-recovery-post-cas",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-40-audit-selector",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-43-shape-last-pass",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-44-run-schema",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-45-report-default",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-47-request-exhaustion-resumes-queued-intent",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-48-429-no-refresh",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-49-sse-rate-limit-no-refresh",
+    "control": "pass",
+    "mutant": "prior-history-as-fresh",
+    "result": "killed"
+  }
+]

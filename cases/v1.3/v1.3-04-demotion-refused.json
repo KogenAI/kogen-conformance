@@ -1,0 +1,32 @@
+{
+  "id": "v1.3-04-demotion-refused",
+  "profile": "v1.3",
+  "title": "Experimental demotion true refuses load without calibration",
+  "spec": [
+    "\u00a72.3",
+    "\u00a73.8.2"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 3,
+        "stdout_contains": "build.auditor_demotion has no admitted calibration"
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "auditor_demotion": true
+    }
+  }
+}

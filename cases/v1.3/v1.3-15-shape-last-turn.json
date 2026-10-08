@@ -1,0 +1,622 @@
+{
+  "id": "v1.3-15-shape-last-turn",
+  "profile": "v1.3",
+  "title": "A valid traversal on primary turn 60 succeeds without fallback",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.5",
+    "\u00a72.3",
+    "\u00a71.7.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "expect": {
+        "exit": 0
+      },
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "success",
+            "validation_passes": 1,
+            "finish_guards": 58,
+            "conversations": [
+              {
+                "logical_turns": 60,
+                "validation_passes": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "guard0",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard1",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard2",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard3",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard4",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard5",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard6",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard7",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard8",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard9",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard10",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard11",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard12",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard13",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard14",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard15",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard16",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard17",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard18",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard19",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard20",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard21",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard22",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard23",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard24",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard25",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard26",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard27",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard28",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard29",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard30",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard31",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard32",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard33",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard34",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard35",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard36",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard37",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard38",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard39",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard40",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard41",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard42",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard43",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard44",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard45",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard46",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard47",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard48",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard49",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard50",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard51",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard52",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard53",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard54",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard55",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard56",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard57",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "write",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Both files are written."
+      }
+    },
+    {
+      "id": "ledger",
+      "expect": {
+        "role": "requirement_auditor"
+      },
+      "reply": {
+        "text": "{\"rows\": [{\"constraint\": \"The greeting in lib/greet.txt says Hello, World!\", \"maps_to\": \"A1\"}]}"
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A1\", \"verdict\": \"valid\", \"citation\": \"\", \"reason\": \"The test checks the requested line.\"}]}"
+      }
+    }
+  ],
+  "project": {}
+}

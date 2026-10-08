@@ -1,0 +1,29 @@
+{
+  "id": "v1.3-25-cache-production",
+  "profile": "v1.3",
+  "title": "cache production",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "v1.3/25-cache-production.json",
+        "expect": {
+          "qualification": "inapplicable",
+          "partial": false,
+          "weighted_hit_rate": 0.8037676609105181,
+          "requests": [
+            {
+              "raw_hit_rate": 0.8037676609105181,
+              "eligible_prefix_reuse": 1.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

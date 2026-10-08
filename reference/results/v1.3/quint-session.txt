@@ -1,0 +1,16 @@
+conform: 0/8 traces agree with the spec (hand 0/8, gen 0/0); 0 steps in 5 ms
+
+✗ 01-same-key-across-repair: diverges at step 0
+      prefixes: want {}, got nothing
+      sharedAffinity: want false, got nothing
+
+✗ 02-identity-changes: diverges at step 0
+      prefixes: want {}, got nothing
+      sharedAffinity: want false, got nothing
+
+✗ 03-checkpoint-epoch: diverges at step 0
+      prefixes: want {}, got nothing
+      sharedAffinity: want false, got nothing
+
+divergence classes (first differing event -> fields):
+     8 × reset -> prefixes, sharedAffinity   e.g. 01-same-key-across-repair

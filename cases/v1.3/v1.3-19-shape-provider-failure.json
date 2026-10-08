@@ -1,0 +1,122 @@
+{
+  "id": "v1.3-19-shape-provider-failure",
+  "profile": "v1.3",
+  "title": "Provider failure keeps exit 4 and publishes attempts without Shape fallback",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.5",
+    "\u00a72.3",
+    "\u00a71.7.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "expect": {
+        "exit": 4
+      },
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "failure",
+            "http_attempts": 4,
+            "validation_passes": 0,
+            "unknown_usage_attempts": 4,
+            "conversations": [
+              {
+                "logical_turns": 1,
+                "validation_passes": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "error0",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "busy",
+              "type": "server_error"
+            }
+          }
+        }
+      },
+      "usage": null
+    },
+    {
+      "id": "error1",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "busy",
+              "type": "server_error"
+            }
+          }
+        }
+      },
+      "usage": null
+    },
+    {
+      "id": "error2",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "busy",
+              "type": "server_error"
+            }
+          }
+        }
+      },
+      "usage": null
+    },
+    {
+      "id": "error3",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "busy",
+              "type": "server_error"
+            }
+          }
+        }
+      },
+      "usage": null
+    }
+  ],
+  "project": {}
+}

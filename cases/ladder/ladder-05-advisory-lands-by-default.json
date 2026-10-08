@@ -1,0 +1,174 @@
+{
+ "id": "ladder-05",
+ "profile": "ladder",
+ "fixture": "kt",
+ "fake": true,
+ "title": "An over-strict A2 with a valid citation and everything else passing gives green-with-advisory-tests and lands",
+ "spec": [
+  "§3.0",
+  "§3.8.1",
+  "§3.8.2",
+  "§1.7.4"
+ ],
+ "script": [
+  {
+   "id": "plan",
+   "expect": {
+    "role": "planner",
+    "tools": []
+   },
+   "reply": {
+    "text": "Difficulty: easy\n\n## Acceptance criteria\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Technical approach\nReplace the single line in lib/greet.txt.\n\n## Implementation steps\n1. Write Hello, World! to lib/greet.txt.\n"
+   }
+  },
+  {
+   "id": "r1.edit",
+   "expect": {
+    "role": "builder",
+    "model": "gpt-6-luna",
+    "effort": "max",
+    "turn": 1,
+    "tools": [
+     "shell"
+    ]
+   },
+   "reply": {
+    "calls": [
+     {
+      "name": "shell",
+      "arguments": {
+       "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "r1.done",
+   "expect": {
+    "role": "builder",
+    "model": "gpt-6-luna",
+    "effort": "max",
+    "turn": 2,
+    "last_item_type": "function_call_output"
+   },
+   "reply": {
+    "text": "Done."
+   }
+  },
+  {
+   "id": "r1.keep",
+   "expect": {
+    "role": "builder",
+    "model": "gpt-6-luna",
+    "effort": "max",
+    "turn": 3,
+    "last_user_contains": "Kogen's controller reported this failure."
+   },
+   "reply": {
+    "text": "The greeting already matches the Request."
+   }
+  },
+  {
+   "id": "audit",
+   "expect": {
+    "role": "auditor",
+    "tools": []
+   },
+   "reply": {
+    "text": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"over_strict\", \"citation\": \"say Hello, World! instead of Hello!\", \"reason\": \"The Request asks for one exclamation mark.\"}]}"
+   }
+  }
+ ],
+ "steps": [
+  {
+   "intent": {
+    "slug": "greet",
+    "intent_text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n- A2: lib/greet.txt contains the line Hello, World!!\n\n## Verify\n- A1: test\n- A2: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+    "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\nt_A2() { grep -qx 'Hello, World!!' lib/greet.txt; }\n",
+    "commit": true
+   }
+  },
+  {
+   "approve": "greet"
+  },
+  {
+   "run": [
+    "kogen",
+    "queue",
+    "start"
+   ],
+   "expect": {
+    "exit": 0,
+    "stderr": "",
+    "stdout_lines": [
+     "building greet",
+     "~landed greet [0-9a-f]{8} \\(advisory: A2\\) \\(Build [0-9a-f]{8}\\)",
+     "queue: done; 1 Build(s), 1 landed, 0 not"
+    ]
+   }
+  },
+  {
+   "assert": {
+    "events": {
+     "slug": "greet",
+     "last": {
+      "event": "finished",
+      "status": "landed",
+      "verdict": "green-with-advisory-tests",
+      "advisory_items": [
+       "A2"
+      ]
+     },
+     "contains": [
+      {
+       "event": "rung_finished",
+       "rung": "R1",
+       "reason": "unchanged"
+      },
+      {
+       "event": "audit",
+       "items": [
+        {
+         "id": "A2",
+         "verdict": "over_strict",
+         "citation": "say Hello, World! instead of Hello!"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "run": [
+    "kogen",
+    "status",
+    "greet",
+    "--json"
+   ],
+   "expect": {
+    "exit": 0,
+    "stdout_json": {
+     "verdict": "green-with-advisory-tests",
+     "advisory_items": [
+      "A2"
+     ],
+     "land_policy": "green-or-advisory",
+     "acceptance": [
+      {
+       "id": "A1",
+       "status": "pass",
+       "demoted": false
+      },
+      {
+       "id": "A2",
+       "status": "~fail(ed)?",
+       "demoted": true
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

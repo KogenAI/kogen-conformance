@@ -1,0 +1,120 @@
+{
+  "id": "v1.3-18-shape-retry-usage",
+  "profile": "v1.3",
+  "title": "Failed retry is an attempt under one logical turn and remains unknown usage",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.5",
+    "\u00a72.3",
+    "\u00a71.7.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "expect": {
+        "exit": 0
+      },
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "success",
+            "http_attempts": 5,
+            "unknown_usage_attempts": 1,
+            "conversations": [
+              {
+                "logical_turns": 2,
+                "validation_passes": 1
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "retry",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "http": {
+          "status": 503,
+          "body": {
+            "error": {
+              "message": "busy",
+              "type": "server_error"
+            }
+          }
+        }
+      },
+      "usage": null
+    },
+    {
+      "id": "write",
+      "expect": {
+        "role": "shaper",
+        "turn": 1
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2
+      },
+      "reply": {
+        "text": "Both files are written."
+      }
+    },
+    {
+      "id": "ledger",
+      "expect": {
+        "role": "requirement_auditor"
+      },
+      "reply": {
+        "text": "{\"rows\": [{\"constraint\": \"The greeting in lib/greet.txt says Hello, World!\", \"maps_to\": \"A1\"}]}"
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{\"items\": [{\"id\": \"A1\", \"verdict\": \"valid\", \"citation\": \"\", \"reason\": \"The test checks the requested line.\"}]}"
+      }
+    }
+  ],
+  "project": {}
+}

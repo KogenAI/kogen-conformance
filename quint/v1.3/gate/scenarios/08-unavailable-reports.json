@@ -1,0 +1,60 @@
+{
+  "name": "08-unavailable-reports",
+  "about": "An unavailable runner takes precedence over empty and malformed reports, except when the runner mutates the tree.",
+  "steps": [
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "empty",
+          "runnerDown": true,
+          "exit0": false,
+          "mutated": false,
+          "failed": 0,
+          "rows": 0
+        }
+      ],
+      "expect": {
+        "ledger": "tool_missing"
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A2",
+          "kind": "keep",
+          "report": "malformed",
+          "runnerDown": true,
+          "exit0": false,
+          "mutated": false,
+          "failed": 0,
+          "rows": 0
+        }
+      ],
+      "expect": {
+        "ledger": "tool_missing"
+      }
+    },
+    {
+      "do": [
+        "Rows",
+        {
+          "id": "A1",
+          "kind": "change",
+          "report": "malformed",
+          "runnerDown": true,
+          "exit0": false,
+          "mutated": true,
+          "failed": 0,
+          "rows": 0
+        }
+      ],
+      "expect": {
+        "ledger": "tree_mutated"
+      }
+    }
+  ]
+}

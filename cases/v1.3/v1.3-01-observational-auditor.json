@@ -1,0 +1,178 @@
+{
+  "id": "v1.3-01-observational-auditor",
+  "profile": "v1.3",
+  "title": "A1 pass / required A2 fail never lands under either policy",
+  "spec": [
+    "\u00a73.0",
+    "\u00a73.7.2",
+    "\u00a73.8.1",
+    "\u00a73.8.2",
+    "\u00a72.8",
+    "\u00a72.10"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "intent_text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting and add the required safety line.\n\n## Acceptance\n- A1: lib/greet.txt contains Hello, World!\n- A2: lib/greet.txt contains SAFE\n\n## Verify\n- A1: test\n- A2: test\n\n## Request\nWrite Hello, World! and SAFE on separate lines.\n",
+        "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\nt_A2() { grep -qx 'SAFE' lib/greet.txt; }\n"
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "capture": {
+        "from": "git",
+        "in": "origin",
+        "args": ["rev-parse", "refs/heads/main"],
+        "var": "base_before_build",
+        "regex": "([0-9a-f]{40})"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 1
+      }
+    },
+    {
+      "assert": {
+        "refs": {
+          "refs/heads/main": "{var:base_before_build}"
+        },
+        "events": {
+          "slug": "greet",
+          "absent": [
+            "acceptance_demoted"
+          ],
+          "contains": [
+            {
+              "event": "audit",
+              "mode": "observational"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "audit"
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{row.audit}"
+      }
+    },
+    {
+      "id": "repair",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    }
+  ],
+  "project": {
+    "build": {
+      "land": "{row.policy}",
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  },
+  "rows": [
+    {
+      "label": "green/over_strict",
+      "policy": "green",
+      "audit": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"over_strict\", \"reason\": \"Advice cannot weaken the required SAFE line.\"}]}"
+    },
+    {
+      "label": "green/contradicts",
+      "policy": "green",
+      "audit": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"contradicts\", \"reason\": \"Advice cannot weaken the required SAFE line.\"}]}"
+    },
+    {
+      "label": "green-or-advisory/over_strict",
+      "policy": "green-or-advisory",
+      "audit": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"over_strict\", \"reason\": \"Advice cannot weaken the required SAFE line.\"}]}"
+    },
+    {
+      "label": "green-or-advisory/contradicts",
+      "policy": "green-or-advisory",
+      "audit": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"contradicts\", \"reason\": \"Advice cannot weaken the required SAFE line.\"}]}"
+    }
+  ]
+}

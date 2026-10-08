@@ -1,0 +1,174 @@
+{
+  "id": "v1.3-17-shape-six-passes",
+  "profile": "v1.3",
+  "title": "Fallback third failed pass exits 1; receipt counts six actual validations",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.5",
+    "\u00a72.3",
+    "\u00a71.7.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "expect": {
+        "exit": 1
+      },
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "failure",
+            "validation_passes": 6,
+            "conversations": [
+              {
+                "validation_passes": 3
+              },
+              {
+                "validation_passes": 3
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "p1",
+      "expect": {
+        "role": "shaper",
+        "turn": 1,
+        "model": "gpt-6.1-sol",
+        "effort": "high"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World. TBD which punctuation.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "p1done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2,
+        "model": "gpt-6.1-sol"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p2",
+      "expect": {
+        "role": "shaper",
+        "turn": 3,
+        "model": "gpt-6.1-sol",
+        "last_user_contains": "Validation failed."
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p3",
+      "expect": {
+        "role": "shaper",
+        "turn": 4,
+        "model": "gpt-6.1-sol",
+        "last_user_contains": "Validation failed."
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p4",
+      "expect": {
+        "role": "shaper",
+        "turn": 1,
+        "model": "gpt-6.1-sol",
+        "fresh": true
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/intents/greet/intent.md",
+              "content": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World. TBD which punctuation.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Notes\nApproach: replace the single line in lib/greet.txt with the new greeting text.\n"
+            }
+          },
+          {
+            "name": "write",
+            "arguments": {
+              "path": ".kogen/acceptance/greet.t.sh",
+              "content": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "p4done",
+      "expect": {
+        "role": "shaper",
+        "turn": 2,
+        "model": "gpt-6.1-sol"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p5",
+      "expect": {
+        "role": "shaper",
+        "turn": 3,
+        "model": "gpt-6.1-sol",
+        "last_user_contains": "Validation failed."
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "p6",
+      "expect": {
+        "role": "shaper",
+        "turn": 4,
+        "model": "gpt-6.1-sol",
+        "last_user_contains": "Validation failed."
+      },
+      "reply": {
+        "text": "Done."
+      }
+    }
+  ],
+  "project": {}
+}

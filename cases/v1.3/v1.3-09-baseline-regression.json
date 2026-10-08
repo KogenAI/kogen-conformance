@@ -1,0 +1,168 @@
+{
+  "id": "v1.3-09-baseline-regression",
+  "profile": "v1.3",
+  "title": "An old red row cannot excuse a defect reintroduced on the new green base",
+  "spec": [
+    "\u00a72.9",
+    "\u00a73.3",
+    "\u00a73.7.2"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "push": true
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 5,
+        "stdout_contains": "baseline"
+      }
+    },
+    {
+      "origin_commit": {
+        "files": {
+          "lib/source.txt": "GREEN\n"
+        },
+        "pull": true
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 5
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 1
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_json": {
+          "verdict": "unverified",
+          "checks": {
+            "$contains": [
+              {
+                "name": "baseline",
+                "excused": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "regress",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt; printf 'RED\\n' > lib/source.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "keep",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    }
+  ],
+  "fixture_files": {
+    "lockfile": "stable\n",
+    "lib/source.txt": "RED\n",
+    "checks/baseline.sh": "#!/bin/sh\nprintf \"%s\\n\" \"$(cat lib/source.txt)\" >> \"{case}/checked.log\"\ngrep -q GREEN lib/source.txt || { echo \"lib/source.txt:1:1: error: [test/base] source: defect\"; exit 1; }\n",
+    "checks/setup.sh": "#!/bin/sh\necho setup >> \"{case}/setup.log\"\nmkdir -p build\necho product > build/product\n"
+  },
+  "project": {
+    "setup_inputs": [
+      "lockfile"
+    ],
+    "checks": [
+      {
+        "name": "baseline",
+        "argv": [
+          "sh",
+          "checks/baseline.sh"
+        ],
+        "timeout_ms": 60000
+      }
+    ],
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  }
+}

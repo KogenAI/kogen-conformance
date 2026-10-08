@@ -1,0 +1,181 @@
+{
+  "id": "v1.3-22-recovery-first",
+  "profile": "v1.3",
+  "title": "Killed before first snapshot preserves latest complete tree and survives repeat recovery",
+  "spec": [
+    "\u00a73.10",
+    "\u00a72.5.3",
+    "\u00a72.8",
+    "\u00a75.4"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 0
+      },
+      "background": "build"
+    },
+    {
+      "wait_until": {
+        "fake_requests": 3,
+        "timeout_s": 30
+      }
+    },
+    {
+      "signal": {
+        "name": "build",
+        "sig": "KILL",
+        "target": "group",
+        "after_s": 0
+      }
+    },
+    {
+      "wait": {
+        "name": "build",
+        "expect": {
+          "exit": 137,
+          "stderr_any": true,
+          "utf8_lines": false
+        }
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": "crashed"
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "recovery",
+          "files": {
+            "lib/greet.txt": {
+              "text": "Latest candidate\n"
+            },
+            "lib/deleted.txt": null,
+            "lib/new.txt": {
+              "text": "Untracked latest\n"
+            },
+            "lib/exec.sh": {
+              "text": "#!/bin/sh\necho latest\n",
+              "mode": "100755"
+            },
+            "lib/link": {
+              "text": "greet.txt",
+              "mode": "120000"
+            }
+          }
+        },
+        "refs": {
+          "refs/kogen/claim": false
+        },
+        "run_json": {
+          "slug": "greet",
+          "match": {
+            "status": "failed",
+            "cleanup_pending": false
+          }
+        }
+      }
+    },
+    {
+      "capture": {
+        "from": "file",
+        "path": "{run_dir:greet}/run.json",
+        "var": "recovered",
+        "regex": "(?s)(.*)"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "files": {
+          "{run_dir:greet}/run.json": {
+            "text": "{var:recovered}"
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "pwd > '{case}/workspace'; printf 'Latest candidate\\n' > lib/greet.txt; rm lib/deleted.txt; printf 'Untracked latest\\n' > lib/new.txt; printf '#!/bin/sh\\necho latest\\n' > lib/exec.sh; chmod +x lib/exec.sh; ln -s greet.txt lib/link"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "paused",
+      "expect": {
+        "role": "builder"
+      },
+      "first_byte_ms": 900000,
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  },
+  "fixture_files": {
+    "lib/deleted.txt": "Delete me\n"
+  },
+  "allow_remaining": true
+}

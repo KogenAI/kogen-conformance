@@ -1,0 +1,19 @@
+{
+  "id": "v1.3-29-cache-infeasible",
+  "profile": "v1.3",
+  "title": "cache infeasible",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "v1.3/29-cache-infeasible.json",
+        "reject": "infeasible"
+      }
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "v1.3-38-recovery-post-cas",
+  "profile": "v1.3",
+  "fixture": "kt",
+  "fake": true,
+  "title": "Post-CAS recovery remains landed while preserving later workspace edits as unverified",
+  "spec": [
+    "\u00a73.10",
+    "\u00a73.9.3",
+    "\u00a72.8",
+    "\u00a75.4"
+  ],
+  "script": [
+    {
+      "include": "r1_happy_v12"
+    }
+  ],
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "write": {
+        "path": "{stubs}/git",
+        "mode": "0755",
+        "text": "#!/bin/sh\ncase_dir='{case}'\norigin='{origin}'\npath_no_wrapper=$(printf '%s' \"$PATH\" | sed 's|^[^:]*:||')\nPATH=$path_no_wrapper\nreal_git=$(command -v git) || exit 127\n\"$real_git\" \"$@\"\nresult=$?\nref_seen=0\nnew_value=\nwant_value=0\nfor arg in \"$@\"; do\n  if [ \"$want_value\" = 1 ]; then new_value=$arg; break; fi\n  if [ \"$arg\" = refs/heads/main ]; then ref_seen=1; want_value=1; fi\ndone\nif [ \"$result\" = 0 ] && [ \"$ref_seen\" = 1 ]; then\n  tip=$(\"$real_git\" --git-dir \"$origin\" rev-parse --verify refs/heads/main 2>/dev/null)\n  incoming=$(\"$real_git\" --git-dir \"$origin\" for-each-ref --format='%(refname)' refs/kogen/incoming/)\n  if [ \"$tip\" = \"$new_value\" ] && [ -n \"$incoming\" ]; then\n    : > \"$case_dir/post-cas\"\n    while [ ! -f \"$case_dir/release-git\" ]; do sleep 0.02; done\n  fi\nfi\nexit \"$result\"\n"
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "background": "drain"
+    },
+    {
+      "wait_until": {
+        "file_exists": "{case}/post-cas",
+        "timeout_s": 60
+      }
+    },
+    {
+      "sh": "for work in '{state_root}'/{run_id:greet}-*; do if [ -d \"$work/.git\" ]; then printf 'After CAS work\\n' > \"$work/lib/post-cas.txt\"; fi; done"
+    },
+    {
+      "signal": {
+        "name": "drain",
+        "sig": "KILL",
+        "target": "group"
+      }
+    },
+    {
+      "wait": {
+        "name": "drain",
+        "timeout": 15,
+        "expect": {
+          "exit": 137
+        }
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_json": {
+          "status": "landed"
+        },
+        "stderr": ""
+      }
+    },
+    {
+      "assert": {
+        "run_json": {
+          "slug": "greet",
+          "match": {
+            "status": "landed",
+            "landing": "$obj"
+          }
+        },
+        "events": {
+          "slug": "greet",
+          "contains": [
+            {
+              "event": "reconciled"
+            }
+          ]
+        },
+        "refs": {
+          "refs/kogen/claim": false
+        },
+        "ref_count": {
+          "refs/kogen/incoming/": 0
+        },
+        "git": [
+          {
+            "args": [
+              "log",
+              "-1",
+              "--format=%B",
+              "main"
+            ],
+            "stdout_contains": "Kogen-Intent: greet"
+          }
+        ]
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "recovery",
+          "files": {
+            "lib/post-cas.txt": {
+              "text": "After CAS work\n"
+            }
+          }
+        },
+        "run_json": {
+          "slug": "greet",
+          "match": {
+            "status": "landed"
+          }
+        }
+      }
+    }
+  ],
+  "allow_remaining": true,
+  "serial": true
+}

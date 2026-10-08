@@ -1,0 +1,13 @@
+conform: 0/18 traces agree with the spec (hand 0/18, gen 0/0); 0 steps in 6721 ms
+
+✗ 01-card-then-approve: diverges at step 0
+      cache: want ["", ""], got ""
+
+✗ 02-hash-mismatch: diverges at step 0
+      cache: want ["", ""], got ""
+
+✗ 03-hash-checked-first: diverges at step 0
+      cache: want ["", ""], got ""
+
+divergence classes (first differing event -> fields):
+    18 × reset -> cache   e.g. 01-card-then-approve

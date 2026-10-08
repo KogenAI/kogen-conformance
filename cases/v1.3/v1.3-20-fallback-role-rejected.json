@@ -1,0 +1,36 @@
+{
+  "id": "v1.3-20-fallback-role-rejected",
+  "profile": "v1.3",
+  "title": "fallback_shaper stays an internal alias, never a configurable role",
+  "spec": [
+    "\u00a72.3"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "approve",
+        "greet"
+      ],
+      "expect": {
+        "exit": 3,
+        "stdout_contains": "build.roles has unknown role \"fallback_shaper\""
+      }
+    }
+  ],
+  "project": {
+    "build": {
+      "roles": {
+        "fallback_shaper": {
+          "model": "gpt-6.1-sol",
+          "effort": "high"
+        }
+      }
+    }
+  }
+}

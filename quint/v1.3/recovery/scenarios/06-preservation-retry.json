@@ -1,0 +1,89 @@
+{
+  "name": "06-preservation-retry",
+  "about": "Preservation failure, reapproval refusal, terminal cleanup retry and idempotence.",
+  "steps": [
+    {
+      "do": [
+        "Put",
+        {
+          "id": "r1",
+          "status": "running",
+          "alive": false,
+          "onBase": false,
+          "lastEvent": "other",
+          "incoming": true,
+          "queued": false,
+          "claim": true,
+          "reason": "",
+          "work": true,
+          "preserved": false,
+          "preserveOk": false
+        }
+      ]
+    },
+    {
+      "do": [
+        "Recover"
+      ],
+      "expect": {
+        "line": "cleanup_failure",
+        "claim": "",
+        "runs": {
+          "r1": {
+            "status": "failed",
+            "reason": "crashed",
+            "work": true,
+            "preserved": false,
+            "cleanupPending": true,
+            "incoming": true
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Reapprove",
+        {
+          "id": "r1"
+        }
+      ],
+      "expect": {
+        "last": "cleanup_pending"
+      }
+    },
+    {
+      "do": [
+        "PreservationResult",
+        {
+          "id": "r1",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "do": [
+        "Recover"
+      ],
+      "expect": {
+        "runs": {
+          "r1": {
+            "status": "failed",
+            "reason": "crashed",
+            "work": false,
+            "preserved": true,
+            "cleanupPending": false,
+            "incoming": false
+          }
+        }
+      }
+    },
+    {
+      "do": [
+        "Recover"
+      ],
+      "expect": {
+        "line": "unchanged"
+      }
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+ "id": "format-02",
+ "profile": "format",
+ "title": "Every banned word and phrase (65)",
+ "spec": [
+  "§2.2",
+  "data/lint.json"
+ ],
+ "fixture": "kt",
+ "rows": [
+  {
+   "label": "ensure",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, ensure here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"ensure\""
+  },
+  {
+   "label": "ensures",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, ensures here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"ensures\""
+  },
+  {
+   "label": "ensuring",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, ensuring here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"ensuring\""
+  },
+  {
+   "label": "robust",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, robust here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"robust\""
+  },
+  {
+   "label": "robustly",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, robustly here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"robustly\""
+  },
+  {
+   "label": "seamless",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, seamless here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"seamless\""
+  },
+  {
+   "label": "seamlessly",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, seamlessly here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"seamlessly\""
+  },
+  {
+   "label": "leverage",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, leverage here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"leverage\""
+  },
+  {
+   "label": "leverages",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, leverages here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"leverages\""
+  },
+  {
+   "label": "leveraging",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, leveraging here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"leveraging\""
+  },
+  {
+   "label": "comprehensive",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, comprehensive here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"comprehensive\""
+  },
+  {
+   "label": "holistic",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, holistic here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"holistic\""
+  },
+  {
+   "label": "streamline",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, streamline here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"streamline\""
+  },
+  {
+   "label": "utilize",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, utilize here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"utilize\""
+  },
+  {
+   "label": "utilizes",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, utilizes here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"utilizes\""
+  },
+  {
+   "label": "facilitate",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, facilitate here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"facilitate\""
+  },
+  {
+   "label": "facilitates",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, facilitates here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"facilitates\""
+  },
+  {
+   "label": "delve",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, delve here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"delve\""
+  },
+  {
+   "label": "crucial",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, crucial here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"crucial\""
+  },
+  {
+   "label": "essential",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, essential here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"essential\""
+  },
+  {
+   "label": "various",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, various here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"various\""
+  },
+  {
+   "label": "properly",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, properly here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"properly\""
+  },
+  {
+   "label": "appropriate",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, appropriate here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"appropriate\""
+  },
+  {
+   "label": "appropriately",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, appropriately here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"appropriately\""
+  },
+  {
+   "label": "gracefully",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, gracefully here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"gracefully\""
+  },
+  {
+   "label": "correctly",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, correctly here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"correctly\""
+  },
+  {
+   "label": "etc",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, etc here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"etc\""
+  },
+  {
+   "label": "moreover",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, moreover here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"moreover\""
+  },
+  {
+   "label": "furthermore",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, furthermore here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"furthermore\""
+  },
+  {
+   "label": "additionally",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, additionally here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"additionally\""
+  },
+  {
+   "label": "overall",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, overall here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"overall\""
+  },
+  {
+   "label": "basically",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, basically here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"basically\""
+  },
+  {
+   "label": "actually",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, actually here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"actually\""
+  },
+  {
+   "label": "simply",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, simply here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"simply\""
+  },
+  {
+   "label": "really",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, really here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"really\""
+  },
+  {
+   "label": "very",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, very here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"very\""
+  },
+  {
+   "label": "meaningful",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, meaningful here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"meaningful\""
+  },
+  {
+   "label": "bounded",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, bounded here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"bounded\""
+  },
+  {
+   "label": "durable",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, durable here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"durable\""
+  },
+  {
+   "label": "authoritative",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, authoritative here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"authoritative\""
+  },
+  {
+   "label": "in order to",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, in order to here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"in order to\""
+  },
+  {
+   "label": "it is important",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, it is important here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"it is important\""
+  },
+  {
+   "label": "it's important",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, it's important here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"it's important\""
+  },
+  {
+   "label": "note that",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, note that here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"note that\""
+  },
+  {
+   "label": "a variety of",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, a variety of here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"a variety of\""
+  },
+  {
+   "label": "in terms of",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, in terms of here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"in terms of\""
+  },
+  {
+   "label": "as needed",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, as needed here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"as needed\""
+  },
+  {
+   "label": "and/or",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, and/or here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"and/or\""
+  },
+  {
+   "label": "best practice",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, best practice here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"best practice\""
+  },
+  {
+   "label": "best practices",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, best practices here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"best practices\""
+  },
+  {
+   "label": "plays a key role",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, plays a key role here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"plays a key role\""
+  },
+  {
+   "label": "not only",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, not only here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"not only\""
+  },
+  {
+   "label": "state of the art",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, state of the art here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"state of the art\""
+  },
+  {
+   "label": "end to end",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, end to end here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"end to end\""
+  },
+  {
+   "label": "end-to-end",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, end-to-end here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"end-to-end\""
+  },
+  {
+   "label": "as well as",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, as well as here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"as well as\""
+  },
+  {
+   "label": "make sure",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, make sure here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"make sure\""
+  },
+  {
+   "label": "take care",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, take care here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"take care\""
+  },
+  {
+   "label": "where appropriate",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, where appropriate here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"where appropriate\""
+  },
+  {
+   "label": "if needed",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, if needed here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"if needed\""
+  },
+  {
+   "label": "if necessary",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, if necessary here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"if necessary\""
+  },
+  {
+   "label": "at all times",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, at all times here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"at all times\""
+  },
+  {
+   "label": "in a way that",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, in a way that here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"in a way that\""
+  },
+  {
+   "label": "with respect to",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, with respect to here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"with respect to\""
+  },
+  {
+   "label": "the ability to",
+   "text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting in lib/greet.txt so that it names World, the ability to here.\n\n## Acceptance\n- A1: lib/greet.txt contains the line Hello, World!\n\n## Verify\n- A1: test\n\n## Request\nMake the greeting in lib/greet.txt say Hello, World! instead of Hello!\n",
+   "line": "  - lint_banned_phrase: - — Brief contains banned phrase \"the ability to\""
+  }
+ ],
+ "steps": [
+  {
+   "intent": {
+    "slug": "wordy",
+    "intent_text": "{row.text}",
+    "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\n"
+   }
+  },
+  {
+   "run": [
+    "kogen",
+    "intent",
+    "approve",
+    "wordy"
+   ],
+   "expect": {
+    "exit": 5,
+    "stderr": "",
+    "stdout_contains": "{row.line}"
+   }
+  }
+ ]
+}

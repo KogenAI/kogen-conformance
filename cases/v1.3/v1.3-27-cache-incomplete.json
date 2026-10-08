@@ -1,0 +1,33 @@
+{
+  "id": "v1.3-27-cache-incomplete",
+  "profile": "v1.3",
+  "title": "cache incomplete",
+  "spec": [
+    "\u00a74.9",
+    "\u00a74.9.5"
+  ],
+  "fixture": "none",
+  "scope": "measurement-boundary",
+  "steps": [
+    {
+      "cache_replay": {
+        "fixture": "v1.3/27-cache-incomplete.json",
+        "expect": {
+          "partial": true,
+          "requests": [
+            {
+              "measurement": "incomplete"
+            },
+            {
+              "measurement": "incomplete"
+            },
+            {
+              "measurement": "miss",
+              "eligible_prefix_reuse": 0.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

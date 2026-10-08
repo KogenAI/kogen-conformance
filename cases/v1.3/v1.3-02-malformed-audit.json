@@ -1,0 +1,144 @@
+{
+  "id": "v1.3-02-malformed-audit",
+  "profile": "v1.3",
+  "title": "Unknown, duplicate and garbled audit replies warn and preserve gate",
+  "spec": [
+    "\u00a73.8.2",
+    "\u00a72.10"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "intent": {
+        "slug": "greet",
+        "intent_text": "---\ntitle: Greet World by name\nsize: small\ndomains: [app]\n---\nChange the greeting and add the required safety line.\n\n## Acceptance\n- A1: lib/greet.txt contains Hello, World!\n- A2: lib/greet.txt contains SAFE\n\n## Verify\n- A1: test\n- A2: test\n\n## Request\nWrite Hello, World! and SAFE on separate lines.\n",
+        "test_text": "t_A1() { grep -qx 'Hello, World!' lib/greet.txt; }\nt_A2() { grep -qx 'SAFE' lib/greet.txt; }\n"
+      }
+    },
+    {
+      "approve": "greet"
+    },
+    {
+      "run": [
+        "kogen",
+        "queue",
+        "start"
+      ],
+      "expect": {
+        "exit": 1
+      }
+    },
+    {
+      "run": [
+        "kogen",
+        "status",
+        "greet",
+        "--json"
+      ],
+      "expect": {
+        "exit": 0
+      }
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "audit",
+          "require_warning": true
+        },
+        "events": {
+          "slug": "greet",
+          "absent": [
+            "acceptance_demoted"
+          ]
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "project": {
+    "build": {
+      "ladder": {
+        "max_rungs": 1
+      }
+    }
+  },
+  "script": [
+    {
+      "id": "plan",
+      "expect": {
+        "role": "planner"
+      },
+      "reply": {
+        "text": "Difficulty: easy\n\n## Technical approach\nChange lib/greet.txt and verify both approved items.\n"
+      }
+    },
+    {
+      "id": "edit",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "shell",
+            "arguments": {
+              "cmd": "printf 'Hello, World!\\n' > lib/greet.txt"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "done",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "audit",
+      "expect": {
+        "role": "test_auditor"
+      },
+      "reply": {
+        "text": "{row.audit}"
+      }
+    },
+    {
+      "id": "repair",
+      "expect": {
+        "role": "builder"
+      },
+      "reply": {
+        "calls": [
+          {
+            "name": "finish",
+            "arguments": {}
+          }
+        ]
+      },
+      "repeat": "always"
+    }
+  ],
+  "rows": [
+    {
+      "label": "garbled",
+      "audit": "not {json"
+    },
+    {
+      "label": "unknown",
+      "audit": "{\"items\": [{\"id\": \"UNKNOWN\", \"verdict\": \"over_strict\", \"reason\": \"unknown\"}]}"
+    },
+    {
+      "label": "duplicate",
+      "audit": "{\"items\": [{\"id\": \"A2\", \"verdict\": \"over_strict\", \"reason\": \"x\"}, {\"id\": \"A2\", \"verdict\": \"over_strict\", \"reason\": \"x\"}]}"
+    }
+  ]
+}

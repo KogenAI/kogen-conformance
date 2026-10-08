@@ -1,0 +1,273 @@
+{
+  "name": "09-baseline-cache",
+  "about": "Checked tree and opaque effective context bind independently; changed tree reruns and replaces red baseline.",
+  "steps": [
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k1",
+          "baseline": "green",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-a"
+        }
+      ],
+      "expect": {
+        "last": "needs_decision",
+        "exit": 5,
+        "ran": true,
+        "checkRuns": 1,
+        "cache": [
+          "tree-a",
+          "k1"
+        ],
+        "bwarn": false
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k1",
+          "baseline": "red",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-a"
+        }
+      ],
+      "expect": {
+        "last": "needs_decision",
+        "exit": 5,
+        "ran": false,
+        "checkRuns": 1,
+        "bwarn": false
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "aaaa1111",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k1",
+          "baseline": "red",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-a"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "exit": 0,
+        "ran": false,
+        "checkRuns": 1,
+        "bwarn": false
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k2",
+          "baseline": "red",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-a"
+        }
+      ],
+      "expect": {
+        "last": "needs_decision",
+        "exit": 5,
+        "ran": true,
+        "checkRuns": 2,
+        "cache": [
+          "tree-a",
+          "k2"
+        ],
+        "bwarn": true
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "bravo",
+          "given": "aaaa1111",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k2",
+          "baseline": "green",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-a"
+        }
+      ],
+      "expect": {
+        "last": "ok",
+        "exit": 0,
+        "ran": false,
+        "checkRuns": 2,
+        "bwarn": true
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k2",
+          "baseline": "green",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-b"
+        }
+      ],
+      "expect": {
+        "ran": true,
+        "checkRuns": 3,
+        "bwarn": false,
+        "cache": [
+          "tree-b",
+          "k2"
+        ]
+      }
+    },
+    {
+      "do": [
+        "Approve",
+        {
+          "slug": "alpha",
+          "given": "",
+          "prefixOk": true,
+          "stableBeforeCas": true,
+          "newSha8": "aaaa1111",
+          "sha": "aaaa1111bbbb2222",
+          "sha8": "aaaa1111",
+          "by": "",
+          "byBad": false,
+          "ident": "Ann <ann@example.test>",
+          "parseErr": false,
+          "lintErr": false,
+          "lintWarn": false,
+          "missing": false,
+          "setup": "ok",
+          "cacheKey": "k2",
+          "baseline": "red",
+          "acceptance": "green",
+          "witnessMode": false,
+          "feas": "not checked",
+          "commit": "c1",
+          "baseSha": "b0",
+          "baseTree": "tree-b"
+        }
+      ],
+      "expect": {
+        "ran": false,
+        "checkRuns": 3,
+        "bwarn": false
+      }
+    }
+  ]
+}

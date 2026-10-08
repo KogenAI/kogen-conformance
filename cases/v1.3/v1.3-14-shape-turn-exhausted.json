@@ -1,0 +1,1134 @@
+{
+  "id": "v1.3-14-shape-turn-exhausted",
+  "profile": "v1.3",
+  "title": "Two 60-turn conversations exhaust at 120 attempts and publish a failure receipt",
+  "spec": [
+    "\u00a73.2.1",
+    "\u00a73.2.5",
+    "\u00a72.3",
+    "\u00a71.7.1"
+  ],
+  "fixture": "kt",
+  "steps": [
+    {
+      "run": [
+        "kogen",
+        "intent",
+        "shape",
+        "greet",
+        "-"
+      ],
+      "expect": {
+        "exit": 1
+      },
+      "stdin": "Make the greeting in lib/greet.txt say Hello, World! instead of Hello!\n"
+    },
+    {
+      "assert": {
+        "v13": {
+          "kind": "shape",
+          "expected": {
+            "outcome": "failure",
+            "validation_passes": 0,
+            "http_attempts": 120,
+            "finish_guards": 120,
+            "conversations": [
+              {
+                "logical_turns": 60,
+                "validation_passes": 0
+              },
+              {
+                "logical_turns": 60,
+                "validation_passes": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "fake": true,
+  "script": [
+    {
+      "id": "guard0",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard1",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard2",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard3",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard4",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard5",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard6",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard7",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard8",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard9",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard10",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard11",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard12",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard13",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard14",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard15",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard16",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard17",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard18",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard19",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard20",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard21",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard22",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard23",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard24",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard25",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard26",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard27",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard28",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard29",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard30",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard31",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard32",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard33",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard34",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard35",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard36",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard37",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard38",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard39",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard40",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard41",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard42",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard43",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard44",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard45",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard46",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard47",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard48",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard49",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard50",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard51",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard52",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard53",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard54",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard55",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard56",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard57",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard58",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard59",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard60",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard61",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard62",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard63",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard64",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard65",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard66",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard67",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard68",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard69",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard70",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard71",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard72",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard73",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard74",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard75",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard76",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard77",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard78",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard79",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard80",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard81",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard82",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard83",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard84",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard85",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard86",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard87",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard88",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard89",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard90",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard91",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard92",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard93",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard94",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard95",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard96",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard97",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard98",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard99",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard100",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard101",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard102",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard103",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard104",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard105",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard106",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard107",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard108",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard109",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard110",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard111",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard112",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard113",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard114",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard115",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard116",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard117",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard118",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    },
+    {
+      "id": "guard119",
+      "expect": {
+        "role": "shaper"
+      },
+      "reply": {
+        "text": "Done."
+      }
+    }
+  ],
+  "project": {}
+}

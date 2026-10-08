@@ -1,0 +1,428 @@
+[
+  {
+    "id": "exunit-01",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-03",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-04",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "exunit-06",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-100-ladder-32",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-103-ladder-35",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-104-provider-01",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-105-provider-02",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-107-provider-04",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-108-provider-06",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-109-provider-07",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-110-provider-08",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-111-provider-09",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-112-provider-11",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-113-provider-12",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-114-provider-14",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-115-provider-17",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-116-provider-18",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-117-provider-20",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-118-provider-25",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-120-custody-07",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-121-custody-08",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-122-custody-09",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-123-custody-10",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-124-build-31",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-132-state-23",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-28-provider-13-planner-no-fallback",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-29-provider-15-idle-stall",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-30-provider-16-total-cap",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-31-provider-23-tool-result-budget",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-37-build-02",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-38-build-03",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-39-build-04",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-40-build-05",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-43-build-08",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-44-build-09",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-45-build-11",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-46-build-12",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-47-build-13",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-48-build-14",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-49-build-15",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-50-build-16",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-51-build-17",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-52-build-18",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-53-build-19",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-54-build-20",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-55-build-21",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-56-build-22",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-57-build-23",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-58-build-24",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-59-build-25",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-60-build-26",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-61-build-27",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-62-build-28",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-63-build-29",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-64-build-30",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-65-build-33",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-67-build-43",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-69-ladder-01",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-70-ladder-02",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-71-ladder-03",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-72-ladder-04",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-80-ladder-12",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-88-ladder-20",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-89-ladder-21",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-90-ladder-22",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-91-ladder-23",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.2-97-ladder-29",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-47-request-exhaustion-resumes-queued-intent",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-48-429-no-refresh",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  },
+  {
+    "id": "v1.3-49-sse-rate-limit-no-refresh",
+    "control": "pass",
+    "mutant": "literal-tilde",
+    "result": "killed"
+  }
+]

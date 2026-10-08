@@ -1,0 +1,33 @@
+{
+  "spec": "e19dd1c",
+  "adapter": "synthetic-1024-v1",
+  "prompt": "generic-v1",
+  "replay": "cache-v1.3",
+  "provider": "fake",
+  "model": "fake-model",
+  "endpoint": "http://fake/responses",
+  "namespace": "account-A/model-A",
+  "affinity": "run",
+  "retention": "within-retention",
+  "tokenizer": "captured-counts",
+  "minimum": 1024,
+  "block": 1024,
+  "appended_budget": 200,
+  "requests": [
+    {
+      "prefix_tokens": 1000,
+      "total_input": 1000,
+      "cached_input": 0
+    },
+    {
+      "prefix_tokens": 2500,
+      "total_input": 2600,
+      "cached_input": 2048
+    },
+    {
+      "prefix_tokens": 4096,
+      "total_input": 4096,
+      "cached_input": 4096
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "name": "08-cross-session-prefix",
+  "about": "Shared affinity preserves separate run identity and static prefix; changed versions permit changed bytes.",
+  "steps": [
+    {
+      "do": [
+        "AffinityScope",
+        {
+          "shared": true
+        }
+      ]
+    },
+    {
+      "do": [
+        "Prefix",
+        {
+          "provider": "chatgpt",
+          "model": "sol",
+          "adapter": "a1",
+          "prompt": "p1",
+          "bytes": "static"
+        }
+      ]
+    },
+    {
+      "do": [
+        "Bind",
+        {
+          "stage": "develop",
+          "attempt": "",
+          "rung": ""
+        }
+      ]
+    },
+    {
+      "do": [
+        "NewRun",
+        {
+          "name": "run-2"
+        }
+      ],
+      "expect": {
+        "sharedAffinity": true,
+        "affinityChanged": false,
+        "runName": "run-2"
+      }
+    },
+    {
+      "do": [
+        "Prefix",
+        {
+          "provider": "chatgpt",
+          "model": "sol",
+          "adapter": "a1",
+          "prompt": "p1",
+          "bytes": "static"
+        }
+      ],
+      "expect": {
+        "last": "ok"
+      }
+    },
+    {
+      "do": [
+        "Prefix",
+        {
+          "provider": "chatgpt",
+          "model": "sol",
+          "adapter": "a1",
+          "prompt": "p1",
+          "bytes": "timestamp"
+        }
+      ],
+      "expect": {
+        "last": "static_prefix_changed"
+      }
+    },
+    {
+      "do": [
+        "Prefix",
+        {
+          "provider": "chatgpt",
+          "model": "sol",
+          "adapter": "a1",
+          "prompt": "p2",
+          "bytes": "new static"
+        }
+      ],
+      "expect": {
+        "last": "ok"
+      }
+    }
+  ]
+}
