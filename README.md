@@ -1,5 +1,9 @@
 # Kogen conformance suite v1.3-draft
 
+> **Archived.** This suite checked the Rust, Go and TypeScript builds of Kogen against [kogen-spec](https://github.com/KogenAI/kogen-spec) in October 2026. Rust was chosen, and the suite now lives with the Rust implementation. More at [kogen.dev](https://kogen.dev).
+>
+> The comparison: [kogen-spec](https://github.com/KogenAI/kogen-spec) · [kogen-conformance](https://github.com/KogenAI/kogen-conformance) · [kogen-rs](https://github.com/KogenAI/kogen-rs) · [kogen-go](https://github.com/KogenAI/kogen-go) · [kogen-ts](https://github.com/KogenAI/kogen-ts)
+
 Kogen is a command-line coding system that shapes requests into reviewed Intents and acceptance tests, builds changes in isolated workspaces, and lands verified changes. This suite checks its CLI behavior, persistent formats and Git state, provider protocol, recovery, and process custody.
 
 The default profile composition targets the experimental Kogen **v1.3-draft** specification at [kogen-spec commit `2e6667eae0d626a5b894588aa465bab35b999928`](https://github.com/KogenAI/kogen-spec/commit/2e6667eae0d626a5b894588aa465bab35b999928). Passing this suite is not a frozen v1.3 release certification. It combines the historical v1.1 corpus with the v1.2 and v1.3 profile overlays. See the [v1.3 report](REPORT-v1.3.md), [case-to-clause expectations](expectations/v1.3.json), and [observation boundaries](data/v1.3/RECEIPTS.md). Implementation cases drive a `kogen` executable through its command line and check exit codes, stdout and stderr, files, Git refs, the run journal and fake-provider requests. Offline measurement cases use synthetic fixtures. The suite is language-neutral and can compare implementations on equal terms.
